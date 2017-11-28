@@ -1,0 +1,13 @@
+D:\Đề Tài CSDLPT\QLDSV\QLDSV\bin\Debug\QLDSV.exe.config
+D:\Đề Tài CSDLPT\QLDSV\QLDSV\bin\Debug\QLDSV.exe
+D:\Đề Tài CSDLPT\QLDSV\QLDSV\bin\Debug\QLDSV.pdb
+D:\Đề Tài CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmDangNhap.resources
+D:\Đề Tài CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmLop.resources
+D:\Đề Tài CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmMain.resources
+D:\Đề Tài CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmSinhVien.resources
+D:\Đề Tài CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.Properties.Resources.resources
+D:\Đề Tài CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.csproj.GenerateResource.Cache
+D:\Đề Tài CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.exe.licenses
+D:\Đề Tài CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.exe
+D:\Đề Tài CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.pdb
+D:\Đề Tài CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.csprojResolveAssemblyReference.cache
