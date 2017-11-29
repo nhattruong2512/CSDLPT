@@ -263,6 +263,7 @@
             this.btnGhi.Id = 3;
             this.btnGhi.ImageOptions.Image = global::QLDSV.Properties.Resources.Save_icon_24;
             this.btnGhi.Name = "btnGhi";
+            this.btnGhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGhi_ItemClick);
             // 
             // btnPhucHoi
             // 
@@ -270,6 +271,7 @@
             this.btnPhucHoi.Id = 4;
             this.btnPhucHoi.ImageOptions.Image = global::QLDSV.Properties.Resources.Undo_icon_24;
             this.btnPhucHoi.Name = "btnPhucHoi";
+            this.btnPhucHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhucHoi_ItemClick);
             // 
             // btnThoat
             // 

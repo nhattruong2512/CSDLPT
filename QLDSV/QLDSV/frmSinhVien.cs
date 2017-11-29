@@ -137,71 +137,23 @@ namespace QLDSV
             txtMaLop.Text = maLop;
             btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
+            txtMaLop.Enabled = false;
             gcSinhVien.Enabled = false;
             choose = THEM;
         }
 
-        private void setModeThem()
-        {
-            bdsSinhVien.AddNew();
-            txtMaLop.Text = maLop;
-        }
-
         private void btnHieuChinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!checkEmtyInfo()) return;
+            vitri = bdsLop.Position;
+            groupBox1.Enabled = true;
+            btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = false;
+            btnGhi.Enabled = btnPhucHoi.Enabled = true;
+            txtMaLop.Enabled = txtMASV.Enabled = false;
+            gcSinhVien.Enabled = false;
+            choose = HIEU_CHINH;
 
-            switch (choose)
-            {
-                case THEM:
-                    {
-                        if (Program.conn.State == ConnectionState.Closed)
-                            Program.conn.Open();
-
-                        String strLenh = "sp_KTMaSV";
-                        Program.sqlcmd = Program.conn.CreateCommand();
-                        Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                        Program.sqlcmd.CommandText = strLenh;
-                        Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.Text).Value = txtMASV.Text;
-                        Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-                        Program.sqlcmd.ExecuteNonQuery();
-                        String Ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
-
-                        if (Ret.Equals("1"))
-                        {
-                            MessageBox.Show("Mã lớp bị trùng!", "", MessageBoxButtons.OK);
-                            txtMaLop.Focus();
-                            Program.conn.Close();
-                            return;
-                        }
-
-                        try
-                        {
-                            bdsSinhVien.EndEdit();
-                            bdsSinhVien.ResetCurrentItem();
-                            this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
-                            this.SinhVienTableAdapter.Update(this.DS.SINHVIEN);
-
-                            String lenhXoaSV = "exec sp_XoaSinhVien '" + txtMASV.Text + "'";
-                            UndoSinhVien undoSV = new UndoSinhVien(THEM,lenhXoaSV);
-                            st.Push(undoSV);
-                            //capNhatBtnPhucHoi();
-
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Lỗi ghi lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
-                            return;
-                        }
-                        gcSinhVien.Enabled = true;
-                        btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = true;
-                        btnGhi.Enabled = false;
-
-                        groupBox1.Enabled = false;
-                        break;
-                    }
-                    break;
-            }
+            UndoLop undo = new UndoLop(HIEU_CHINH, getInfoSinhVien());
+            st.Push(undo);
         }
 
         private bool checkEmtyInfo()
@@ -247,26 +199,15 @@ namespace QLDSV
             {
                 try
                 {
-                    SinhVien sv = new SinhVien();
-                    sv.setMaSV(txtMASV.Text.ToString());
-                    sv.setHo(txtHo.Text.ToString());
-                    sv.setTen(txtTen.Text.ToString());
-                    sv.setMaLop(txtMaLop.Text.ToString());
-                    sv.setNgaySinh(txtNgaySinh.DateTime);
-                    sv.setNoiSinh(txtNoiSinh.Text.ToString());
-                    sv.setDiaChi(txtDiaChi.Text.ToString());
-                    sv.setPhai(chkPhai.Checked);
-                    sv.setNghiHoc(chkNghiHoc.Checked);
-                    UndoLop undo = new UndoLop(XOA, sv);
+                   
+                    UndoLop undo = new UndoLop(XOA, getInfoSinhVien());
                     st.Push(undo);
 
                     maSV = ((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString(); // giữ lại để khi xóa bij lỗi thì ta sẽ quay về lại
                     bdsSinhVien.RemoveCurrent();
                     this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.SinhVienTableAdapter.Update(this.DS.SINHVIEN);
-
-
-                    //capNhatBtnPhucHoi();
+                    capNhatBtnPhucHoi();
                 }
                 catch (Exception ex)
                 {
@@ -279,6 +220,179 @@ namespace QLDSV
             }
 
             if (bdsLop.Count == 0) btnXoa.Enabled = false;
+        }
+
+        private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!checkEmtyInfo()) return;
+
+            switch (choose)
+            {
+                case THEM:
+                    {
+                        if (Program.conn.State == ConnectionState.Closed)
+                            Program.conn.Open();
+
+                        String strLenh = "sp_KTMaSV";
+                        Program.sqlcmd = Program.conn.CreateCommand();
+                        Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                        Program.sqlcmd.CommandText = strLenh;
+                        Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.Text).Value = txtMASV.Text;
+                        Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+                        Program.sqlcmd.ExecuteNonQuery();
+                        String Ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
+
+                        if (Ret.Equals("1"))
+                        {
+                            MessageBox.Show("Mã sinh viên bị trùng!", "", MessageBoxButtons.OK);
+                            txtMaLop.Focus();
+                            Program.conn.Close();
+                            return;
+                        }
+
+                        try
+                        {
+                            bdsSinhVien.EndEdit();
+                            bdsSinhVien.ResetCurrentItem();
+                            this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
+                            this.SinhVienTableAdapter.Update(this.DS.SINHVIEN);
+
+                            String lenhXoaSV = "exec sp_XoaSinhVien '" + txtMASV.Text + "'";
+                            UndoSinhVien undoSV = new UndoSinhVien(THEM, lenhXoaSV);
+                            st.Push(undoSV);
+                            //capNhatBtnPhucHoi();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi ghi sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
+                            return;
+                        }
+                        gcSinhVien.Enabled = true;
+                        btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = true;
+                        btnGhi.Enabled = false;
+                        groupBox1.Enabled = false;
+                        capNhatBtnPhucHoi();
+                        break;
+                    }
+
+                case HIEU_CHINH:
+                    {
+
+                        try
+                        {
+                            bdsSinhVien.EndEdit();
+                            bdsSinhVien.ResetCurrentItem();
+                            this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
+                            this.SinhVienTableAdapter.Update(this.DS.SINHVIEN);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Lỗi hiệu chỉnh sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
+                            return;
+                        }
+                        gcSinhVien.Enabled = true;
+                        btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = true;
+                        btnGhi.Enabled = btnPhucHoi.Enabled = false;
+                        groupBox1.Enabled = false;
+                        capNhatBtnPhucHoi();
+                        break;
+                    }
+                   
+            }
+        }
+
+        private SinhVien getInfoSinhVien()
+        {
+            SinhVien sv = new SinhVien();
+            sv.setMaSV(txtMASV.Text.ToString());
+            sv.setHo(txtHo.Text.ToString());
+            sv.setTen(txtTen.Text.ToString());
+            sv.setMaLop(txtMaLop.Text.ToString());
+            sv.setNgaySinh(txtNgaySinh.DateTime);
+            sv.setNoiSinh(txtNoiSinh.Text.ToString());
+            sv.setDiaChi(txtDiaChi.Text.ToString());
+            sv.setPhai(chkPhai.Checked);
+            sv.setNghiHoc(chkNghiHoc.Checked);
+            return sv;
+        }
+
+        private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            bdsSinhVien.CancelEdit();
+            if (btnThem.Enabled == false) bdsSinhVien.Position = vitri;
+            gcSinhVien.Enabled = true;
+            groupBox1.Enabled = false;
+            btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = true;
+            btnGhi.Enabled = btnPhucHoi.Enabled = false;
+
+            if (st.Count == 0) return;
+
+            UndoSinhVien objUndo = (UndoSinhVien)st.Pop();
+            Object obj = objUndo.getObject();
+            switch (objUndo.getType())
+            {
+                case THEM:
+                    Program.ExecSqlDataReader(obj.ToString());
+                    this.LopTableAdapter.Fill(this.DS.LOP);
+                    capNhatBtnPhucHoi();
+                    break;
+                case HIEU_CHINH:
+                    Lop lopHieuChinh = (Lop)obj;
+                    if (Program.conn.State == ConnectionState.Closed)
+                        Program.conn.Open();
+                    String strPhucHoiHieuChinh = "sp_PhucHoiLopHieuChinh";
+                    Program.sqlcmd = Program.conn.CreateCommand();
+                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                    Program.sqlcmd.CommandText = strPhucHoiHieuChinh;
+                    Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.Text).Value = lopHieuChinh.maLop;
+                    Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.Text).Value = lopHieuChinh.tenLop;
+                    Program.sqlcmd.ExecuteNonQuery();
+                    Program.conn.Close();
+                    reload();
+                    break;
+                case XOA:
+                    Lop lopXoa = (Lop)obj;
+                    if (Program.conn.State == ConnectionState.Closed)
+                        Program.conn.Open();
+                    String strPhucHoiXoa = "sp_ThemLop";
+                    Program.sqlcmd = Program.conn.CreateCommand();
+                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                    Program.sqlcmd.CommandText = strPhucHoiXoa;
+                    Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.Text).Value = lopXoa.maLop;
+                    Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.Text).Value = lopXoa.tenLop;
+                    Program.sqlcmd.Parameters.Add("@MAKHOA", SqlDbType.Text).Value = lopXoa.maKhoa;
+                    Program.sqlcmd.ExecuteNonQuery();
+                    reload();
+                    break;
+            }
+        }
+
+        private void capNhatBtnPhucHoi()
+        {
+            if (st.Count == 0)
+            {
+                btnPhucHoi.Enabled = false;
+            }
+            else
+            {
+                btnPhucHoi.Enabled = true;
+            }
+        }
+
+        private void reload()
+        {
+            try
+            {
+                this.SinhVienTableAdapter.Fill(this.DS.SINHVIEN);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi Reload :" + ex.Message, "", MessageBoxButtons.OK);
+                return;
+            }
         }
     }
 
@@ -293,6 +407,16 @@ namespace QLDSV
         {
             this.type = type;
             this.obj = obj;
+        }
+
+        public int getType()
+        {
+            return type;
+        }
+
+        public Object getObject()
+        {
+            return obj;
         }
     }
 
