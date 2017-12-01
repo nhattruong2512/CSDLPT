@@ -14,6 +14,15 @@ namespace QLDSV
         public frmMain()
         {
             InitializeComponent();
+
+            Form frm = this.CheckExists(typeof(frmDangNhap));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmDangNhap f = new frmDangNhap();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
         private Form CheckExists(Type ftype)
         {
@@ -67,6 +76,18 @@ namespace QLDSV
             else
             {
                 frmSinhVien f = new frmSinhVien();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmMonHoc));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmMonHoc f = new frmMonHoc();
                 f.MdiParent = this;
                 f.Show();
             }

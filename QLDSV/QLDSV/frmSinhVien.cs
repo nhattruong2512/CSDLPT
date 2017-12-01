@@ -23,6 +23,7 @@ namespace QLDSV
         string maLop = "";
         String maSV = "";
         bool isChangeKhoa;
+        bool isDangThem = false;
 
         public frmSinhVien()
         {
@@ -45,13 +46,9 @@ namespace QLDSV
 
         private void frmSinhVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DS.LOP' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'DS.SINHVIEN' table. You can move, or remove it, as needed.
             DS.EnforceConstraints = false;
-            // TODO: This line of code loads data into the 'dS.SINHVIEN' table. You can move, or remove it, as needed.
             this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.SinhVienTableAdapter.Fill(this.DS.SINHVIEN);
-            // TODO: This line of code loads data into the 'dS.LOP' table. You can move, or remove it, as needed.
             this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
             this.LopTableAdapter.Fill(this.DS.LOP);
 
@@ -140,6 +137,7 @@ namespace QLDSV
             txtMaLop.Enabled = false;
             gcSinhVien.Enabled = false;
             choose = THEM;
+            isDangThem = true;
         }
 
         private void btnHieuChinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -152,7 +150,7 @@ namespace QLDSV
             gcSinhVien.Enabled = false;
             choose = HIEU_CHINH;
 
-            UndoLop undo = new UndoLop(HIEU_CHINH, getInfoSinhVien());
+            UndoSinhVien undo = new UndoSinhVien(HIEU_CHINH, getInfoSinhVien());
             st.Push(undo);
         }
 
@@ -273,6 +271,7 @@ namespace QLDSV
                         btnGhi.Enabled = false;
                         groupBox1.Enabled = false;
                         capNhatBtnPhucHoi();
+                        isDangThem = false;
                         break;
                     }
 
@@ -320,6 +319,9 @@ namespace QLDSV
 
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (isDangThem) bdsSinhVien.RemoveCurrent();
+            this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.SinhVienTableAdapter.Update(this.DS.SINHVIEN);
             bdsSinhVien.CancelEdit();
             if (btnThem.Enabled == false) bdsSinhVien.Position = vitri;
             gcSinhVien.Enabled = true;
@@ -335,34 +337,46 @@ namespace QLDSV
             {
                 case THEM:
                     Program.ExecSqlDataReader(obj.ToString());
-                    this.LopTableAdapter.Fill(this.DS.LOP);
+                    this.SinhVienTableAdapter.Fill(this.DS.SINHVIEN);
                     capNhatBtnPhucHoi();
                     break;
                 case HIEU_CHINH:
-                    Lop lopHieuChinh = (Lop)obj;
+                    SinhVien svHieuChinh = (SinhVien)obj;
                     if (Program.conn.State == ConnectionState.Closed)
                         Program.conn.Open();
-                    String strPhucHoiHieuChinh = "sp_PhucHoiLopHieuChinh";
+                    String strPhucHoiHieuChinh = "sp_PhucHoiSinhVien";
                     Program.sqlcmd = Program.conn.CreateCommand();
                     Program.sqlcmd.CommandType = CommandType.StoredProcedure;
                     Program.sqlcmd.CommandText = strPhucHoiHieuChinh;
-                    Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.Text).Value = lopHieuChinh.maLop;
-                    Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.Text).Value = lopHieuChinh.tenLop;
+                    Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.Text).Value = svHieuChinh.getMaSV();
+                    Program.sqlcmd.Parameters.Add("@HO", SqlDbType.Text).Value = svHieuChinh.getHo();
+                    Program.sqlcmd.Parameters.Add("@TEN", SqlDbType.Text).Value = svHieuChinh.getTen();
+                    Program.sqlcmd.Parameters.Add("@PHAI", SqlDbType.Bit).Value = svHieuChinh.isPhai();
+                    Program.sqlcmd.Parameters.Add("@NGAYSINH", SqlDbType.DateTime).Value = svHieuChinh.getNgaySinh();
+                    Program.sqlcmd.Parameters.Add("@NOISINH", SqlDbType.Text).Value = svHieuChinh.getNoiSinh();
+                    Program.sqlcmd.Parameters.Add("@DIACHI", SqlDbType.Text).Value = svHieuChinh.getDiaChi();
+                    Program.sqlcmd.Parameters.Add("@NGHIHOC", SqlDbType.Bit).Value = svHieuChinh.isNghiHoc();
                     Program.sqlcmd.ExecuteNonQuery();
                     Program.conn.Close();
                     reload();
                     break;
                 case XOA:
-                    Lop lopXoa = (Lop)obj;
+                    SinhVien svXoa = (SinhVien)obj;
                     if (Program.conn.State == ConnectionState.Closed)
                         Program.conn.Open();
-                    String strPhucHoiXoa = "sp_ThemLop";
+                    String strPhucHoiXoa = "sp_ThemSinhVien";
                     Program.sqlcmd = Program.conn.CreateCommand();
                     Program.sqlcmd.CommandType = CommandType.StoredProcedure;
                     Program.sqlcmd.CommandText = strPhucHoiXoa;
-                    Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.Text).Value = lopXoa.maLop;
-                    Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.Text).Value = lopXoa.tenLop;
-                    Program.sqlcmd.Parameters.Add("@MAKHOA", SqlDbType.Text).Value = lopXoa.maKhoa;
+                    Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.Text).Value = svXoa.getMaSV();
+                    Program.sqlcmd.Parameters.Add("@HO", SqlDbType.Text).Value = svXoa.getHo();
+                    Program.sqlcmd.Parameters.Add("@TEN", SqlDbType.Text).Value = svXoa.getTen();
+                    Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.Text).Value = svXoa.getMaLop();
+                    Program.sqlcmd.Parameters.Add("@NGAYSINH", SqlDbType.DateTime).Value = svXoa.getNgaySinh();
+                    Program.sqlcmd.Parameters.Add("@PHAI", SqlDbType.Bit).Value = svXoa.isPhai();
+                    Program.sqlcmd.Parameters.Add("@NOISINH", SqlDbType.Text).Value = svXoa.getNoiSinh();
+                    Program.sqlcmd.Parameters.Add("@DIACHI", SqlDbType.Text).Value = svXoa.getDiaChi();
+                    Program.sqlcmd.Parameters.Add("@NGHIHOC", SqlDbType.Bit).Value = svXoa.isNghiHoc();
                     Program.sqlcmd.ExecuteNonQuery();
                     reload();
                     break;

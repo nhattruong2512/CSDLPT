@@ -33,6 +33,7 @@
             this.btnDangNhap = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.btnLop = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -43,7 +44,8 @@
             this.MAGV = new System.Windows.Forms.ToolStripStatusLabel();
             this.HOTEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.NHOM = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnMonHoc = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -57,10 +59,11 @@
             this.btnDangNhap,
             this.btnThoat,
             this.btnLop,
-            this.btnSinhVien});
+            this.btnSinhVien,
+            this.btnMonHoc});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 5;
+            this.ribbonControl1.MaxItemId = 6;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -94,6 +97,13 @@
             this.btnLop.Name = "btnLop";
             this.btnLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLop_ItemClick);
             // 
+            // btnSinhVien
+            // 
+            this.btnSinhVien.Caption = "Sinh viên";
+            this.btnSinhVien.Id = 4;
+            this.btnSinhVien.Name = "btnSinhVien";
+            this.btnSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSinhVien_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -112,7 +122,8 @@
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2,
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup4});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Danh mục";
             // 
@@ -162,12 +173,18 @@
             this.NHOM.Size = new System.Drawing.Size(45, 17);
             this.NHOM.Text = "NHOM";
             // 
-            // btnSinhVien
+            // ribbonPageGroup4
             // 
-            this.btnSinhVien.Caption = "Sinh viên";
-            this.btnSinhVien.Id = 4;
-            this.btnSinhVien.Name = "btnSinhVien";
-            this.btnSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSinhVien_ItemClick);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnMonHoc);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "Môn học";
+            // 
+            // btnMonHoc
+            // 
+            this.btnMonHoc.Caption = "Môn học";
+            this.btnMonHoc.Id = 5;
+            this.btnMonHoc.Name = "btnMonHoc";
+            this.btnMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMonHoc_ItemClick);
             // 
             // frmMain
             // 
@@ -211,6 +228,8 @@
         private DevExpress.XtraBars.BarButtonItem btnLop;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem btnSinhVien;
+        private DevExpress.XtraBars.BarButtonItem btnMonHoc;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     }
 }
 

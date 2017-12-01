@@ -73,7 +73,7 @@ namespace QLDSV
                 return null;
             }
         }
-        public static DataTable ExecSqlDataTable(String cmd, string connstr)
+        public static DataTable ExecSqlDataTable(String cmd)
         {   
             DataTable dt = new DataTable();
             if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();

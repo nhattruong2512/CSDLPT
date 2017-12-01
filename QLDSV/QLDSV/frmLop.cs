@@ -149,18 +149,12 @@ namespace QLDSV
                         return;
                     }
 
-                    String strLenhTenLop = "dbo.sp_KTTENLOP";
-                    Program.sqlcmd = Program.conn.CreateCommand();
-                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                    Program.sqlcmd.CommandText = strLenhTenLop;
-                    Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.Text).Value = convertStringToUTF8(txtTenLop.Text.Trim());
-                    Program.sqlcmd.Parameters.Add("RetTenLop", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-                    Program.sqlcmd.ExecuteNonQuery();
-                    Program.conn.Close();
-                    String RetTenLop = Program.sqlcmd.Parameters["RetTenLop"].Value.ToString();
-                    if (RetTenLop.Equals("1"))
+                    String sql = "exec dbo.sp_KTTENLOP N'" + txtTenLop.Text + "'";
+                    DataTable dataTable = Program.ExecSqlDataTable(sql);
+
+                    if (dataTable.Rows.Count > 0)
                     {
-                        MessageBox.Show("Tên lớp bị trùng!", "", MessageBoxButtons.OK);
+                        MessageBox.Show("Tên lớp bị trùng!");
                         txtTenLop.Focus();
                         Program.conn.Close();
                         return;
@@ -213,7 +207,7 @@ namespace QLDSV
                     if (RetKiemTraTenLop == "1")
                     {
                         MessageBox.Show("Tên lớp bị trùng!", "", MessageBoxButtons.OK);
-                        txtMaLop.Focus();
+                        txtTenLop.Focus();
                         return;
                     }
 
@@ -232,7 +226,7 @@ namespace QLDSV
                     }
                     gcLop.Enabled = true;
                     btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = true;
-                    btnGhi.Enabled = btnPhucHoi.Enabled = false;
+                    btnGhi.Enabled = false;
 
                     groupBox1.Enabled = false;
 
@@ -264,13 +258,17 @@ namespace QLDSV
                     Lop lopHieuChinh = (Lop)obj;
                     if (Program.conn.State == ConnectionState.Closed)
                         Program.conn.Open();
-                    String strPhucHoiHieuChinh = "sp_PhucHoiLopHieuChinh";
-                    Program.sqlcmd = Program.conn.CreateCommand();
-                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                    Program.sqlcmd.CommandText = strPhucHoiHieuChinh;
-                    Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.Text).Value = lopHieuChinh.maLop;
-                    Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.Text).Value = lopHieuChinh.tenLop;
-                    Program.sqlcmd.ExecuteNonQuery();
+
+                    String sqlHieuChinh = "exec sp_PhucHoiLopHieuChinh N'" + lopHieuChinh.maLop + "',N'" + lopHieuChinh.tenLop + "'";
+                    Program.ExecSqlDataTable(sqlHieuChinh);
+
+                    //String strPhucHoiHieuChinh = "sp_PhucHoiLopHieuChinh";
+                    //Program.sqlcmd = Program.conn.CreateCommand();
+                    //Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                    //Program.sqlcmd.CommandText = strPhucHoiHieuChinh;
+                    //Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.Text).Value = lopHieuChinh.maLop;
+                    //Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.Text).Value = lopHieuChinh.tenLop;
+                    //Program.sqlcmd.ExecuteNonQuery();
                     Program.conn.Close();
                     reload();
                     break;
@@ -278,14 +276,18 @@ namespace QLDSV
                     Lop lopXoa = (Lop)obj;
                     if (Program.conn.State == ConnectionState.Closed)
                         Program.conn.Open();
-                    String strPhucHoiXoa = "sp_ThemLop";
-                    Program.sqlcmd = Program.conn.CreateCommand();
-                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                    Program.sqlcmd.CommandText = strPhucHoiXoa;
-                    Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.Text).Value = lopXoa.maLop;
-                    Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.Text).Value = lopXoa.tenLop;
-                    Program.sqlcmd.Parameters.Add("@MAKHOA", SqlDbType.Text).Value = lopXoa.maKhoa;
-                    Program.sqlcmd.ExecuteNonQuery();
+
+                    String sql = "exec sp_ThemLop N'" + lopXoa + "',N'" + lopXoa.tenLop + "',N'" + lopXoa.maKhoa + "'";
+                    Program.ExecSqlDataTable(sql);
+
+                    //String strPhucHoiXoa = "sp_ThemLop";
+                    //Program.sqlcmd = Program.conn.CreateCommand();
+                    //Program.sqlcmd.CommandType = CommandType.StoredProcedure;
+                    //Program.sqlcmd.CommandText = strPhucHoiXoa;
+                    //Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.Text).Value = lopXoa.maLop;
+                    //Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.Text).Value = lopXoa.tenLop;
+                    //Program.sqlcmd.Parameters.Add("@MAKHOA", SqlDbType.Text).Value = lopXoa.maKhoa;
+                    //Program.sqlcmd.ExecuteNonQuery();
                     reload();
                     break;
             }
