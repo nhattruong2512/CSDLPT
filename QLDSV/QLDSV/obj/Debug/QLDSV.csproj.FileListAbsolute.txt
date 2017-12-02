@@ -25,3 +25,4 @@ D:\DeTaiCSDLPT\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.Properties.Resources.resources
 D:\DeTaiCSDLPT\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.csproj.GenerateResource.Cache
 D:\DeTaiCSDLPT\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.exe.licenses
 D:\DeTaiCSDLPT\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmMonHoc.resources
+D:\DeTaiCSDLPT\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmDiem.resources

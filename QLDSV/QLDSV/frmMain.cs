@@ -93,5 +93,17 @@ namespace QLDSV
             }
         }
 
+        private void btnDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmDiem f = new frmDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
     }
 }

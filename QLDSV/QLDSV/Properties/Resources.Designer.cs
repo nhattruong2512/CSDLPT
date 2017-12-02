@@ -73,6 +73,16 @@ namespace QLDSV.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap back_24 {
+            get {
+                object obj = ResourceManager.GetObject("back_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Button_Add_24_icon {
             get {
                 object obj = ResourceManager.GetObject("Button-Add-24-icon", resourceCulture);

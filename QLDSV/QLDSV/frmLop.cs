@@ -22,6 +22,7 @@ namespace QLDSV
         int choose = -1;
         int vitri = 0;
         string maKhoa = "";
+        bool isDangThem = false;
 
         public frmLop()
         {
@@ -65,10 +66,12 @@ namespace QLDSV
             groupBox1.Enabled = true;
             bdsLop.AddNew();
             txtMaKhoa.Text = maKhoa;
+            txtMaLop.Enabled = true;
             btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
             gcLop.Enabled = false;
             choose = THEM;
+            isDangThem = true;
         }
 
         private void btnHieuChinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -181,8 +184,8 @@ namespace QLDSV
                     gcLop.Enabled = true;
                     btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = true;
                     btnGhi.Enabled = false;
-
                     groupBox1.Enabled = false;
+                    isDangThem = false;
                     break;
 
                 case HIEU_CHINH:
@@ -236,6 +239,13 @@ namespace QLDSV
 
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (isDangThem)
+            {
+                reload();
+                capNhatBtnPhucHoi();
+                isDangThem = false;
+            }
+
             bdsLop.CancelEdit();
             if (btnThem.Enabled == false) bdsLop.Position = vitri;
             gcLop.Enabled = true;

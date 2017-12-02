@@ -21,8 +21,8 @@ namespace QLDSV
         int choose = -1;
         int vitri = 0;
         string maMH = "";
-        bool isDangThem = false;
         string tenMH;
+        bool isDangThem = false;
 
         public frmMonHoc()
         {
@@ -51,7 +51,7 @@ namespace QLDSV
             vitri = bdsMonHoc.Position;
             groupBox1.Enabled = true;
             bdsMonHoc.AddNew();
-            btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = false;
+            btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
             gcMonHoc.Enabled = false;
             txtMaMH.Enabled = true;
@@ -62,17 +62,15 @@ namespace QLDSV
 
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-          
             if (isDangThem)
             {
-                bdsMonHoc.RemoveCurrent();
-                this.MonHocTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.MonHocTableAdapter.Update(this.dS.MONHOC);
+                capNhatBtnPhucHoi();
+                reload();
                 isDangThem = false;
             }
-
+          
             bdsMonHoc.CancelEdit();
-            if (btnThem.Enabled == false || btnHieuChinh.Enabled) bdsMonHoc.Position = vitri;
+            if (btnThem.Enabled == false || btnHieuChinh.Enabled == false) bdsMonHoc.Position = vitri;
             gcMonHoc.Enabled = true;
             groupBox1.Enabled = false;
             btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = true;
@@ -98,7 +96,7 @@ namespace QLDSV
 
                         MonHoc monHocHieuChinh = (MonHoc)obj;
 
-                        String sqlHieuChinh = "exec sp_CapNhatMonHoc N'" + monHocHieuChinh.getMaMH() + ",N'" + monHocHieuChinh.getTenMH() + "'";
+                        String sqlHieuChinh = "exec sp_CapNhatMonHoc N'" + monHocHieuChinh.getMaMH() + "',N'" + monHocHieuChinh.getTenMH() + "'";
                         Program.ExecSqlDataTable(sqlHieuChinh);
                         //String strPhucHoiHieuChinh = "sp_CapNhatMonHoc";
                         //Program.sqlcmd = Program.conn.CreateCommand();
@@ -136,12 +134,16 @@ namespace QLDSV
         {
             vitri = bdsMonHoc.Position;
             groupBox1.Enabled = true;
-            btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = false;
+            btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
             txtMaMH.Enabled = false;
             gcMonHoc.Enabled = false;
             tenMH = txtTenMH.Text;
             choose = HIEU_CHINH;
+
+            MonHoc monHoc = new MonHoc(txtMaMH.Text.ToString(), txtTenMH.Text.ToString());
+            UndoMonHoc undo = new UndoMonHoc(HIEU_CHINH, monHoc);
+            st.Push(undo);
         }
 
         private void reload()
@@ -237,7 +239,6 @@ namespace QLDSV
                             MessageBox.Show("Lỗi ghi lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
                             return;
                         }
-
                         isDangThem = false;
                         updateViewMode();
                         break;
@@ -267,9 +268,7 @@ namespace QLDSV
 
                         try
                         {
-                            MonHoc monHoc = new MonHoc(txtMaMH.Text.ToString(), txtTenMH.Text.ToString());
-                            UndoMonHoc undo = new UndoMonHoc(HIEU_CHINH, monHoc);
-                            st.Push(undo);
+                            
 
                             bdsMonHoc.EndEdit();
                             bdsMonHoc.ResetCurrentItem();

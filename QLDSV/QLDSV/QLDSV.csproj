@@ -66,6 +66,12 @@
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDiem.Designer.cs">
+      <DependentUpon>frmDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDiem.resx">
+      <DependentUpon>frmDiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLop.resx">
       <DependentUpon>frmLop.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,7 +138,6 @@
     </None>
     <None Include="DS.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="DS.xss">
@@ -185,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Undo-icon-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
