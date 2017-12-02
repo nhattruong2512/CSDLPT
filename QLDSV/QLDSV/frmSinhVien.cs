@@ -22,7 +22,6 @@ namespace QLDSV
         int vitri = 0;
         string maLop = "";
         String maSV = "";
-        bool isChangeKhoa;
         bool isDangThem = false;
 
         public frmSinhVien()
@@ -72,8 +71,6 @@ namespace QLDSV
                 cmbLop.Enabled = false;
 
         }
-
-        bool isChange = false;
 
         private void cmbLop_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -133,7 +130,7 @@ namespace QLDSV
             bdsSinhVien.AddNew();
             txtMaLop.Text = maLop;
             btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = false;
-            btnGhi.Enabled = btnPhucHoi.Enabled = true;
+            btnGhi.Enabled = btnPhucHoi.Enabled = txtMASV.Enabled = true;
             txtMaLop.Enabled = false;
             gcSinhVien.Enabled = false;
             choose = THEM;

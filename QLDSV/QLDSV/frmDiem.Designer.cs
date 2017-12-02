@@ -49,21 +49,21 @@
             this.bdsMonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.MonHocTableAdapter = new QLDSV.DSTableAdapters.MONHOCTableAdapter();
             this.LopTableAdapter = new QLDSV.DSTableAdapters.LOPTableAdapter();
+            this.bdsNhapDiem = new System.Windows.Forms.BindingSource(this.components);
+            this.NhapDiemTableAdapter = new QLDSV.DSTableAdapters.sp_BangDiemTableAdapter();
             this.gcNhapDiem = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDIEM = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.NhapDiemTableAdapter = new QLDSV.DSTableAdapters.sp_FormNhapDiemTableAdapter();
-            this.bdsNhapDiem = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSinhVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsNhapDiem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNhapDiem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsNhapDiem)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -232,6 +232,15 @@
             // 
             this.LopTableAdapter.ClearBeforeFill = true;
             // 
+            // bdsNhapDiem
+            // 
+            this.bdsNhapDiem.DataMember = "sp_BangDiem";
+            this.bdsNhapDiem.DataSource = this.dS;
+            // 
+            // NhapDiemTableAdapter
+            // 
+            this.NhapDiemTableAdapter.ClearBeforeFill = true;
+            // 
             // gcNhapDiem
             // 
             this.gcNhapDiem.DataSource = this.bdsNhapDiem;
@@ -274,15 +283,6 @@
             this.colDIEM.Visible = true;
             this.colDIEM.VisibleIndex = 2;
             // 
-            // NhapDiemTableAdapter
-            // 
-            this.NhapDiemTableAdapter.ClearBeforeFill = true;
-            // 
-            // bdsNhapDiem
-            // 
-            this.bdsNhapDiem.DataMember = "sp_FormNhapDiem";
-            this.bdsNhapDiem.DataSource = this.dS;
-            // 
             // frmDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,9 +300,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSinhVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsNhapDiem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNhapDiem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsNhapDiem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,14 +327,14 @@
         private System.Windows.Forms.BindingSource bdsLop;
         private DSTableAdapters.LOPTableAdapter LopTableAdapter;
         private System.Windows.Forms.ComboBox cmbLanThi;
+        private System.Windows.Forms.Button btnLuu;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.BindingSource bdsNhapDiem;
+        private DSTableAdapters.sp_BangDiemTableAdapter NhapDiemTableAdapter;
         private DevExpress.XtraGrid.GridControl gcNhapDiem;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMASV;
         private DevExpress.XtraGrid.Columns.GridColumn colHOTEN;
         private DevExpress.XtraGrid.Columns.GridColumn colDIEM;
-        private System.Windows.Forms.Button btnLuu;
-        private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.BindingSource bdsNhapDiem;
-        private DSTableAdapters.sp_FormNhapDiemTableAdapter NhapDiemTableAdapter;
     }
 }

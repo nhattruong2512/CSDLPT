@@ -127,10 +127,10 @@ namespace QLDSV
             {
                 this.NhapDiemTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.NhapDiemTableAdapter.Fill(
-                    this.dS.sp_FormNhapDiem,
+                    this.dS.sp_BangDiem,
                     cmbLop.SelectedValue.ToString(),
                     cmbMonHoc.SelectedValue.ToString(),
-                    short.Parse(cmbLanThi.SelectedValue.ToString()
+                    short.Parse(cmbLanThi.SelectedValue.ToString())
                );
             }
             catch (System.Exception ex)
@@ -140,6 +140,7 @@ namespace QLDSV
             }
 
             this.NhapDiemTableAdapter.Connection.ConnectionString = Program.connstr;
+
             DataTable data = this.NhapDiemTableAdapter.GetData(
                                                   cmbLop.SelectedValue.ToString(),
                                                   cmbMonHoc.SelectedValue.ToString(),
@@ -215,6 +216,6 @@ namespace QLDSV
         private void cmbLanThi_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
-
+       
     }
 }

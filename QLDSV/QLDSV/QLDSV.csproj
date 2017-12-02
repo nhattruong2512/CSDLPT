@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DS.Designer.cs">
+    <Compile Include="DS1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
@@ -137,8 +137,9 @@
       <DependentUpon>DS.xsd</DependentUpon>
     </None>
     <None Include="DS.xsd">
-      <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>DS1.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="DS.xss">
       <DependentUpon>DS.xsd</DependentUpon>

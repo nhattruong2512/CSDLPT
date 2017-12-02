@@ -36,7 +36,7 @@ namespace QLDSV {
         
         private SINHVIENDataTable tableSINHVIEN;
         
-        private sp_FormNhapDiemDataTable tablesp_FormNhapDiem;
+        private sp_BangDiemDataTable tablesp_BangDiem;
         
         private global::System.Data.DataRelation relationFK_MONHOC_DIEM;
         
@@ -94,8 +94,8 @@ namespace QLDSV {
                 if ((ds.Tables["SINHVIEN"] != null)) {
                     base.Tables.Add(new SINHVIENDataTable(ds.Tables["SINHVIEN"]));
                 }
-                if ((ds.Tables["sp_FormNhapDiem"] != null)) {
-                    base.Tables.Add(new sp_FormNhapDiemDataTable(ds.Tables["sp_FormNhapDiem"]));
+                if ((ds.Tables["sp_BangDiem"] != null)) {
+                    base.Tables.Add(new sp_BangDiemDataTable(ds.Tables["sp_BangDiem"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -179,9 +179,9 @@ namespace QLDSV {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_FormNhapDiemDataTable sp_FormNhapDiem {
+        public sp_BangDiemDataTable sp_BangDiem {
             get {
-                return this.tablesp_FormNhapDiem;
+                return this.tablesp_BangDiem;
             }
         }
         
@@ -270,8 +270,8 @@ namespace QLDSV {
                 if ((ds.Tables["SINHVIEN"] != null)) {
                     base.Tables.Add(new SINHVIENDataTable(ds.Tables["SINHVIEN"]));
                 }
-                if ((ds.Tables["sp_FormNhapDiem"] != null)) {
-                    base.Tables.Add(new sp_FormNhapDiemDataTable(ds.Tables["sp_FormNhapDiem"]));
+                if ((ds.Tables["sp_BangDiem"] != null)) {
+                    base.Tables.Add(new sp_BangDiemDataTable(ds.Tables["sp_BangDiem"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -342,10 +342,10 @@ namespace QLDSV {
                     this.tableSINHVIEN.InitVars();
                 }
             }
-            this.tablesp_FormNhapDiem = ((sp_FormNhapDiemDataTable)(base.Tables["sp_FormNhapDiem"]));
+            this.tablesp_BangDiem = ((sp_BangDiemDataTable)(base.Tables["sp_BangDiem"]));
             if ((initTable == true)) {
-                if ((this.tablesp_FormNhapDiem != null)) {
-                    this.tablesp_FormNhapDiem.InitVars();
+                if ((this.tablesp_BangDiem != null)) {
+                    this.tablesp_BangDiem.InitVars();
                 }
             }
             this.relationFK_MONHOC_DIEM = this.Relations["FK_MONHOC_DIEM"];
@@ -375,8 +375,8 @@ namespace QLDSV {
             base.Tables.Add(this.tableMONHOC);
             this.tableSINHVIEN = new SINHVIENDataTable();
             base.Tables.Add(this.tableSINHVIEN);
-            this.tablesp_FormNhapDiem = new sp_FormNhapDiemDataTable();
-            base.Tables.Add(this.tablesp_FormNhapDiem);
+            this.tablesp_BangDiem = new sp_BangDiemDataTable();
+            base.Tables.Add(this.tablesp_BangDiem);
             global::System.Data.ForeignKeyConstraint fkc;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_MONHOC_DIEM", new global::System.Data.DataColumn[] {
                         this.tableMONHOC.MAMHColumn}, new global::System.Data.DataColumn[] {
@@ -473,7 +473,7 @@ namespace QLDSV {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializesp_FormNhapDiem() {
+        private bool ShouldSerializesp_BangDiem() {
             return false;
         }
         
@@ -551,7 +551,7 @@ namespace QLDSV {
         public delegate void SINHVIENRowChangeEventHandler(object sender, SINHVIENRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void sp_FormNhapDiemRowChangeEventHandler(object sender, sp_FormNhapDiemRowChangeEvent e);
+        public delegate void sp_BangDiemRowChangeEventHandler(object sender, sp_BangDiemRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2405,7 +2405,7 @@ namespace QLDSV {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_FormNhapDiemDataTable : global::System.Data.TypedTableBase<sp_FormNhapDiemRow> {
+        public partial class sp_BangDiemDataTable : global::System.Data.TypedTableBase<sp_BangDiemRow> {
             
             private global::System.Data.DataColumn columnMASV;
             
@@ -2415,8 +2415,8 @@ namespace QLDSV {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_FormNhapDiemDataTable() {
-                this.TableName = "sp_FormNhapDiem";
+            public sp_BangDiemDataTable() {
+                this.TableName = "sp_BangDiem";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2424,7 +2424,7 @@ namespace QLDSV {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal sp_FormNhapDiemDataTable(global::System.Data.DataTable table) {
+            internal sp_BangDiemDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2441,7 +2441,7 @@ namespace QLDSV {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected sp_FormNhapDiemDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected sp_BangDiemDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -2481,54 +2481,54 @@ namespace QLDSV {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_FormNhapDiemRow this[int index] {
+            public sp_BangDiemRow this[int index] {
                 get {
-                    return ((sp_FormNhapDiemRow)(this.Rows[index]));
+                    return ((sp_BangDiemRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sp_FormNhapDiemRowChangeEventHandler sp_FormNhapDiemRowChanging;
+            public event sp_BangDiemRowChangeEventHandler sp_BangDiemRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sp_FormNhapDiemRowChangeEventHandler sp_FormNhapDiemRowChanged;
+            public event sp_BangDiemRowChangeEventHandler sp_BangDiemRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sp_FormNhapDiemRowChangeEventHandler sp_FormNhapDiemRowDeleting;
+            public event sp_BangDiemRowChangeEventHandler sp_BangDiemRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sp_FormNhapDiemRowChangeEventHandler sp_FormNhapDiemRowDeleted;
+            public event sp_BangDiemRowChangeEventHandler sp_BangDiemRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addsp_FormNhapDiemRow(sp_FormNhapDiemRow row) {
+            public void Addsp_BangDiemRow(sp_BangDiemRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_FormNhapDiemRow Addsp_FormNhapDiemRow(string MASV, string HOTEN, double DIEM) {
-                sp_FormNhapDiemRow rowsp_FormNhapDiemRow = ((sp_FormNhapDiemRow)(this.NewRow()));
+            public sp_BangDiemRow Addsp_BangDiemRow(string MASV, string HOTEN, double DIEM) {
+                sp_BangDiemRow rowsp_BangDiemRow = ((sp_BangDiemRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MASV,
                         HOTEN,
                         DIEM};
-                rowsp_FormNhapDiemRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_FormNhapDiemRow);
-                return rowsp_FormNhapDiemRow;
+                rowsp_BangDiemRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsp_BangDiemRow);
+                return rowsp_BangDiemRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_FormNhapDiemRow FindByMASV(string MASV) {
-                return ((sp_FormNhapDiemRow)(this.Rows.Find(new object[] {
+            public sp_BangDiemRow FindByMASV(string MASV) {
+                return ((sp_BangDiemRow)(this.Rows.Find(new object[] {
                             MASV})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                sp_FormNhapDiemDataTable cln = ((sp_FormNhapDiemDataTable)(base.Clone()));
+                sp_BangDiemDataTable cln = ((sp_BangDiemDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2536,7 +2536,7 @@ namespace QLDSV {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_FormNhapDiemDataTable();
+                return new sp_BangDiemDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2567,28 +2567,28 @@ namespace QLDSV {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_FormNhapDiemRow Newsp_FormNhapDiemRow() {
-                return ((sp_FormNhapDiemRow)(this.NewRow()));
+            public sp_BangDiemRow Newsp_BangDiemRow() {
+                return ((sp_BangDiemRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_FormNhapDiemRow(builder);
+                return new sp_BangDiemRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(sp_FormNhapDiemRow);
+                return typeof(sp_BangDiemRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.sp_FormNhapDiemRowChanged != null)) {
-                    this.sp_FormNhapDiemRowChanged(this, new sp_FormNhapDiemRowChangeEvent(((sp_FormNhapDiemRow)(e.Row)), e.Action));
+                if ((this.sp_BangDiemRowChanged != null)) {
+                    this.sp_BangDiemRowChanged(this, new sp_BangDiemRowChangeEvent(((sp_BangDiemRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2596,8 +2596,8 @@ namespace QLDSV {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.sp_FormNhapDiemRowChanging != null)) {
-                    this.sp_FormNhapDiemRowChanging(this, new sp_FormNhapDiemRowChangeEvent(((sp_FormNhapDiemRow)(e.Row)), e.Action));
+                if ((this.sp_BangDiemRowChanging != null)) {
+                    this.sp_BangDiemRowChanging(this, new sp_BangDiemRowChangeEvent(((sp_BangDiemRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2605,8 +2605,8 @@ namespace QLDSV {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.sp_FormNhapDiemRowDeleted != null)) {
-                    this.sp_FormNhapDiemRowDeleted(this, new sp_FormNhapDiemRowChangeEvent(((sp_FormNhapDiemRow)(e.Row)), e.Action));
+                if ((this.sp_BangDiemRowDeleted != null)) {
+                    this.sp_BangDiemRowDeleted(this, new sp_BangDiemRowChangeEvent(((sp_BangDiemRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2614,14 +2614,14 @@ namespace QLDSV {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.sp_FormNhapDiemRowDeleting != null)) {
-                    this.sp_FormNhapDiemRowDeleting(this, new sp_FormNhapDiemRowChangeEvent(((sp_FormNhapDiemRow)(e.Row)), e.Action));
+                if ((this.sp_BangDiemRowDeleting != null)) {
+                    this.sp_BangDiemRowDeleting(this, new sp_BangDiemRowChangeEvent(((sp_BangDiemRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removesp_FormNhapDiemRow(sp_FormNhapDiemRow row) {
+            public void Removesp_BangDiemRow(sp_BangDiemRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2648,7 +2648,7 @@ namespace QLDSV {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_FormNhapDiemDataTable";
+                attribute2.FixedValue = "sp_BangDiemDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3292,25 +3292,25 @@ namespace QLDSV {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class sp_FormNhapDiemRow : global::System.Data.DataRow {
+        public partial class sp_BangDiemRow : global::System.Data.DataRow {
             
-            private sp_FormNhapDiemDataTable tablesp_FormNhapDiem;
+            private sp_BangDiemDataTable tablesp_BangDiem;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal sp_FormNhapDiemRow(global::System.Data.DataRowBuilder rb) : 
+            internal sp_BangDiemRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablesp_FormNhapDiem = ((sp_FormNhapDiemDataTable)(this.Table));
+                this.tablesp_BangDiem = ((sp_BangDiemDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string MASV {
                 get {
-                    return ((string)(this[this.tablesp_FormNhapDiem.MASVColumn]));
+                    return ((string)(this[this.tablesp_BangDiem.MASVColumn]));
                 }
                 set {
-                    this[this.tablesp_FormNhapDiem.MASVColumn] = value;
+                    this[this.tablesp_BangDiem.MASVColumn] = value;
                 }
             }
             
@@ -3319,14 +3319,14 @@ namespace QLDSV {
             public string HOTEN {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_FormNhapDiem.HOTENColumn]));
+                        return ((string)(this[this.tablesp_BangDiem.HOTENColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'HOTEN\' in table \'sp_FormNhapDiem\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'HOTEN\' in table \'sp_BangDiem\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_FormNhapDiem.HOTENColumn] = value;
+                    this[this.tablesp_BangDiem.HOTENColumn] = value;
                 }
             }
             
@@ -3335,39 +3335,39 @@ namespace QLDSV {
             public double DIEM {
                 get {
                     try {
-                        return ((double)(this[this.tablesp_FormNhapDiem.DIEMColumn]));
+                        return ((double)(this[this.tablesp_BangDiem.DIEMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DIEM\' in table \'sp_FormNhapDiem\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DIEM\' in table \'sp_BangDiem\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_FormNhapDiem.DIEMColumn] = value;
+                    this[this.tablesp_BangDiem.DIEMColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsHOTENNull() {
-                return this.IsNull(this.tablesp_FormNhapDiem.HOTENColumn);
+                return this.IsNull(this.tablesp_BangDiem.HOTENColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetHOTENNull() {
-                this[this.tablesp_FormNhapDiem.HOTENColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_BangDiem.HOTENColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsDIEMNull() {
-                return this.IsNull(this.tablesp_FormNhapDiem.DIEMColumn);
+                return this.IsNull(this.tablesp_BangDiem.DIEMColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDIEMNull() {
-                this[this.tablesp_FormNhapDiem.DIEMColumn] = global::System.Convert.DBNull;
+                this[this.tablesp_BangDiem.DIEMColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3579,22 +3579,22 @@ namespace QLDSV {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class sp_FormNhapDiemRowChangeEvent : global::System.EventArgs {
+        public class sp_BangDiemRowChangeEvent : global::System.EventArgs {
             
-            private sp_FormNhapDiemRow eventRow;
+            private sp_BangDiemRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_FormNhapDiemRowChangeEvent(sp_FormNhapDiemRow row, global::System.Data.DataRowAction action) {
+            public sp_BangDiemRowChangeEvent(sp_BangDiemRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_FormNhapDiemRow Row {
+            public sp_BangDiemRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6072,7 +6072,7 @@ SELECT MASV, HO, TEN, MALOP, PHAI, NGAYSINH, NOISINH, DIACHI, NGHIHOC FROM SINHV
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_FormNhapDiemTableAdapter : global::System.ComponentModel.Component {
+    public partial class sp_BangDiemTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -6086,7 +6086,7 @@ SELECT MASV, HO, TEN, MALOP, PHAI, NGAYSINH, NOISINH, DIACHI, NGHIHOC FROM SINHV
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public sp_FormNhapDiemTableAdapter() {
+        public sp_BangDiemTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -6183,7 +6183,7 @@ SELECT MASV, HO, TEN, MALOP, PHAI, NGAYSINH, NOISINH, DIACHI, NGHIHOC FROM SINHV
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_FormNhapDiem";
+            tableMapping.DataSetTable = "sp_BangDiem";
             tableMapping.ColumnMappings.Add("MASV", "MASV");
             tableMapping.ColumnMappings.Add("HOTEN", "HOTEN");
             tableMapping.ColumnMappings.Add("DIEM", "DIEM");
@@ -6203,19 +6203,19 @@ SELECT MASV, HO, TEN, MALOP, PHAI, NGAYSINH, NOISINH, DIACHI, NGHIHOC FROM SINHV
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.sp_FormNhapDiem";
+            this._commandCollection[0].CommandText = "dbo.sp_BangDiem";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MALOP", global::System.Data.SqlDbType.NChar, 8, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MAMH", global::System.Data.SqlDbType.NChar, 8, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DIEM", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 5, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LAN", global::System.Data.SqlDbType.SmallInt, 2, global::System.Data.ParameterDirection.Input, 5, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DS.sp_FormNhapDiemDataTable dataTable, string MALOP, string MAMH, global::System.Nullable<short> DIEM) {
+        public virtual int Fill(DS.sp_BangDiemDataTable dataTable, string MALOP, string MAMH, global::System.Nullable<short> LAN) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((MALOP == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -6229,8 +6229,8 @@ SELECT MASV, HO, TEN, MALOP, PHAI, NGAYSINH, NOISINH, DIACHI, NGHIHOC FROM SINHV
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = ((string)(MAMH));
             }
-            if ((DIEM.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((short)(DIEM.Value));
+            if ((LAN.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((short)(LAN.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -6246,7 +6246,7 @@ SELECT MASV, HO, TEN, MALOP, PHAI, NGAYSINH, NOISINH, DIACHI, NGHIHOC FROM SINHV
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DS.sp_FormNhapDiemDataTable GetData(string MALOP, string MAMH, global::System.Nullable<short> DIEM) {
+        public virtual DS.sp_BangDiemDataTable GetData(string MALOP, string MAMH, global::System.Nullable<short> LAN) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((MALOP == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -6260,13 +6260,13 @@ SELECT MASV, HO, TEN, MALOP, PHAI, NGAYSINH, NOISINH, DIACHI, NGHIHOC FROM SINHV
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = ((string)(MAMH));
             }
-            if ((DIEM.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((short)(DIEM.Value));
+            if ((LAN.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((short)(LAN.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            DS.sp_FormNhapDiemDataTable dataTable = new DS.sp_FormNhapDiemDataTable();
+            DS.sp_BangDiemDataTable dataTable = new DS.sp_BangDiemDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
