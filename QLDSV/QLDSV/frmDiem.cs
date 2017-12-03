@@ -216,6 +216,12 @@ namespace QLDSV
         private void cmbLanThi_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
+
+        private void btnBaoCao_Click(object sender, EventArgs e)
+        {
+            frmBaoCaoDSSV f = new frmBaoCaoDSSV();
+            f.ShowDialog();
+        }
        
     }
 }

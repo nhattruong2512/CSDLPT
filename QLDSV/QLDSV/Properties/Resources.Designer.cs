@@ -133,6 +133,16 @@ namespace QLDSV.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap folder_flower_blue_CVDI_icon {
+            get {
+                object obj = ResourceManager.GetObject("folder-flower-blue-CVDI-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Login_48_icon {
             get {
                 object obj = ResourceManager.GetObject("Login-48-icon", resourceCulture);

@@ -105,5 +105,12 @@ namespace QLDSV
             }
         }
 
+        private void btnBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmBaoCaoDSSV f = new frmBaoCaoDSSV();
+            
+            f.ShowDialog();
+        }
+
     }
 }

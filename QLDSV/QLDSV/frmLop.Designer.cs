@@ -200,6 +200,7 @@
             this.btnThoat.Id = 5;
             this.btnThoat.ImageOptions.Image = global::QLDSV.Properties.Resources.Exit_24_icon;
             this.btnThoat.Name = "btnThoat";
+            this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
             // 
             // bar4
             // 

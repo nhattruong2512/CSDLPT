@@ -41,3 +41,4 @@ D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmSinhVien.resources
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.Properties.Resources.resources
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.csproj.GenerateResource.Cache
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.exe.licenses
+D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmBaoCaoDSSV.resources

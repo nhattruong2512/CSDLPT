@@ -56,6 +56,7 @@
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDIEM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnBaoCao = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
@@ -68,6 +69,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnBaoCao);
             this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.btnLuu);
             this.panel1.Controls.Add(this.cmbLanThi);
@@ -97,9 +99,9 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(627, 107);
+            this.btnLuu.Location = new System.Drawing.Point(576, 109);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(75, 23);
+            this.btnLuu.Size = new System.Drawing.Size(58, 23);
             this.btnLuu.TabIndex = 10;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
@@ -108,17 +110,17 @@
             // cmbLanThi
             // 
             this.cmbLanThi.FormattingEnabled = true;
-            this.cmbLanThi.Location = new System.Drawing.Point(441, 109);
+            this.cmbLanThi.Location = new System.Drawing.Point(425, 109);
             this.cmbLanThi.Name = "cmbLanThi";
-            this.cmbLanThi.Size = new System.Drawing.Size(55, 21);
+            this.cmbLanThi.Size = new System.Drawing.Size(44, 21);
             this.cmbLanThi.TabIndex = 9;
             this.cmbLanThi.SelectedIndexChanged += new System.EventHandler(this.cmbLanThi_SelectedIndexChanged);
             // 
             // btnBatDau
             // 
-            this.btnBatDau.Location = new System.Drawing.Point(527, 107);
+            this.btnBatDau.Location = new System.Drawing.Point(496, 109);
             this.btnBatDau.Name = "btnBatDau";
-            this.btnBatDau.Size = new System.Drawing.Size(75, 23);
+            this.btnBatDau.Size = new System.Drawing.Size(59, 23);
             this.btnBatDau.TabIndex = 8;
             this.btnBatDau.Text = "Bắt đầu";
             this.btnBatDau.UseVisualStyleBackColor = true;
@@ -127,7 +129,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(396, 112);
+            this.label3.Location = new System.Drawing.Point(380, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 6;
@@ -283,6 +285,16 @@
             this.colDIEM.Visible = true;
             this.colDIEM.VisibleIndex = 2;
             // 
+            // btnBaoCao
+            // 
+            this.btnBaoCao.Location = new System.Drawing.Point(655, 109);
+            this.btnBaoCao.Name = "btnBaoCao";
+            this.btnBaoCao.Size = new System.Drawing.Size(59, 23);
+            this.btnBaoCao.TabIndex = 12;
+            this.btnBaoCao.Text = "Báo cáo";
+            this.btnBaoCao.UseVisualStyleBackColor = true;
+            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
+            // 
             // frmDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,5 +348,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMASV;
         private DevExpress.XtraGrid.Columns.GridColumn colHOTEN;
         private DevExpress.XtraGrid.Columns.GridColumn colDIEM;
+        private System.Windows.Forms.Button btnBaoCao;
     }
 }
