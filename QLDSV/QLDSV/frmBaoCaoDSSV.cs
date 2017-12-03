@@ -12,40 +12,34 @@ namespace QLDSV
 {
     public partial class frmBaoCaoDSSV : Form
     {
+        private string maLop = "";
+        private string tenLop = "";
+
         public frmBaoCaoDSSV()
         {
             InitializeComponent();
         }
 
-        
+        public void setMaLop(string maLop) { this.maLop = maLop; }
+
+        public string getMaLop() { return maLop; }
+
+        public void setTenLop(string tenLop) { this.tenLop = tenLop; }
+
+        public string getTenLop() { return tenLop; }
 
         private void frmBaoCaoDSSV_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dS.LOP' table. You can move, or remove it, as needed.
-            dS.EnforceConstraints = false;
-            this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.lOPTableAdapter.Fill(this.dS.LOP);
-
-        }
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-            ReportDSSV rp = new ReportDSSV();
-
             string strLenh;
             DataTable MyTable;
-            strLenh = "EXEC sp_DanhSachSinhVien '" + comboBox1.SelectedValue.ToString().Trim() + "'";
-            
+            strLenh = "EXEC sp_DanhSachSinhVien '" + maLop + "'";
+
             MyTable = Program.ExecSqlDataTable(strLenh);
 
+            ReportDSSV rp = new ReportDSSV();
             rp.SetDataSource(MyTable);
-
             crystalReportViewer1.ReportSource = rp;
 
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

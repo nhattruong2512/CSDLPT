@@ -288,7 +288,6 @@
             this.LopAdapterManager.LOPTableAdapter = this.LopTableAdapter;
             this.LopAdapterManager.MONHOCTableAdapter = null;
             this.LopAdapterManager.SINHVIENTableAdapter = null;
-            this.LopAdapterManager.UpdateOrder = QLDSV.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // gcLop
             // 

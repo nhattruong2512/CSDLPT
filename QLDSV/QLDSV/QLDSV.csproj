@@ -67,6 +67,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmBaoCaoDanhSachDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCaoDanhSachDiem.Designer.cs">
+      <DependentUpon>frmBaoCaoDanhSachDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBaoCaoDSSV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,15 @@
       <DependentUpon>ReportDSSV.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptDanhSachDiem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDanhSachDiem.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="frmBaoCaoDanhSachDiem.resx">
+      <DependentUpon>frmBaoCaoDanhSachDiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBaoCaoDSSV.resx">
       <DependentUpon>frmBaoCaoDSSV.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,14 +173,18 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportDSSV.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptDanhSachDiem.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDanhSachDiem.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="DS.xsc">
       <DependentUpon>DS.xsd</DependentUpon>
     </None>
     <None Include="DS.xsd">
       <SubType>Designer</SubType>
-      <LastGenOutput>DS1.Designer.cs</LastGenOutput>
       <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS.Designer.cs</LastGenOutput>
     </None>
     <None Include="DS.xss">
       <DependentUpon>DS.xsd</DependentUpon>

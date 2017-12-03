@@ -222,6 +222,17 @@ namespace QLDSV
             frmBaoCaoDSSV f = new frmBaoCaoDSSV();
             f.ShowDialog();
         }
+
+        private void btnInDsDiem_Click(object sender, EventArgs e)
+        {
+            frmBaoCaoDanhSachDiem f = new frmBaoCaoDanhSachDiem();
+            f.setMaLop(cmbLop.SelectedValue.ToString());
+            f.setTenLop(cmbLop.Text.ToString());
+            f.setMaMonHoc(cmbMonHoc.SelectedValue.ToString());
+            f.seTenMonHoc(cmbMonHoc.Text.ToString());
+            f.setLanThi(cmbLanThi.Text.ToString());
+            f.ShowDialog();
+        }
        
     }
 }

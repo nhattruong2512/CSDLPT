@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnInDSDiem = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.cmbLanThi = new System.Windows.Forms.ComboBox();
@@ -56,7 +57,6 @@
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDIEM = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnBaoCao = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
@@ -69,7 +69,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnBaoCao);
+            this.panel1.Controls.Add(this.btnInDSDiem);
             this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.btnLuu);
             this.panel1.Controls.Add(this.cmbLanThi);
@@ -87,6 +87,16 @@
             this.panel1.Size = new System.Drawing.Size(778, 161);
             this.panel1.TabIndex = 0;
             // 
+            // btnInDSDiem
+            // 
+            this.btnInDSDiem.Location = new System.Drawing.Point(406, 122);
+            this.btnInDSDiem.Name = "btnInDSDiem";
+            this.btnInDSDiem.Size = new System.Drawing.Size(134, 23);
+            this.btnInDSDiem.TabIndex = 12;
+            this.btnInDSDiem.Text = "In danh sách điểm";
+            this.btnInDSDiem.UseVisualStyleBackColor = true;
+            this.btnInDSDiem.Click += new System.EventHandler(this.btnInDsDiem_Click);
+            // 
             // btnBack
             // 
             this.btnBack.Location = new System.Drawing.Point(12, 3);
@@ -99,7 +109,7 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(576, 109);
+            this.btnLuu.Location = new System.Drawing.Point(289, 122);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(58, 23);
             this.btnLuu.TabIndex = 10;
@@ -109,8 +119,9 @@
             // 
             // cmbLanThi
             // 
+            this.cmbLanThi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLanThi.FormattingEnabled = true;
-            this.cmbLanThi.Location = new System.Drawing.Point(425, 109);
+            this.cmbLanThi.Location = new System.Drawing.Point(474, 77);
             this.cmbLanThi.Name = "cmbLanThi";
             this.cmbLanThi.Size = new System.Drawing.Size(44, 21);
             this.cmbLanThi.TabIndex = 9;
@@ -118,7 +129,7 @@
             // 
             // btnBatDau
             // 
-            this.btnBatDau.Location = new System.Drawing.Point(496, 109);
+            this.btnBatDau.Location = new System.Drawing.Point(179, 122);
             this.btnBatDau.Name = "btnBatDau";
             this.btnBatDau.Size = new System.Drawing.Size(59, 23);
             this.btnBatDau.TabIndex = 8;
@@ -129,7 +140,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(380, 114);
+            this.label3.Location = new System.Drawing.Point(403, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 6;
@@ -139,7 +150,7 @@
             // 
             this.cmbMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMonHoc.FormattingEnabled = true;
-            this.cmbMonHoc.Location = new System.Drawing.Point(107, 109);
+            this.cmbMonHoc.Location = new System.Drawing.Point(107, 77);
             this.cmbMonHoc.Name = "cmbMonHoc";
             this.cmbMonHoc.Size = new System.Drawing.Size(240, 21);
             this.cmbMonHoc.TabIndex = 5;
@@ -147,7 +158,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 112);
+            this.label2.Location = new System.Drawing.Point(25, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 4;
@@ -159,7 +170,7 @@
             this.cmbLop.DisplayMember = "TENLOP";
             this.cmbLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLop.FormattingEnabled = true;
-            this.cmbLop.Location = new System.Drawing.Point(107, 71);
+            this.cmbLop.Location = new System.Drawing.Point(474, 35);
             this.cmbLop.Name = "cmbLop";
             this.cmbLop.Size = new System.Drawing.Size(240, 21);
             this.cmbLop.TabIndex = 3;
@@ -179,7 +190,7 @@
             // lbLop
             // 
             this.lbLop.AutoSize = true;
-            this.lbLop.Location = new System.Drawing.Point(25, 74);
+            this.lbLop.Location = new System.Drawing.Point(403, 38);
             this.lbLop.Name = "lbLop";
             this.lbLop.Size = new System.Drawing.Size(25, 13);
             this.lbLop.TabIndex = 2;
@@ -215,18 +226,11 @@
             this.tableAdapterManager.LOPTableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.SINHVIENTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QLDSV.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // SinhVienTableAdapter
-            // 
             this.SinhVienTableAdapter.ClearBeforeFill = true;
-            // 
-            // bdsMonHoc
-            // 
+            
             this.bdsMonHoc.DataMember = "MONHOC";
             this.bdsMonHoc.DataSource = this.dS;
             // 
-            // MonHocTableAdapter
             // 
             this.MonHocTableAdapter.ClearBeforeFill = true;
             // 
@@ -285,16 +289,6 @@
             this.colDIEM.Visible = true;
             this.colDIEM.VisibleIndex = 2;
             // 
-            // btnBaoCao
-            // 
-            this.btnBaoCao.Location = new System.Drawing.Point(655, 109);
-            this.btnBaoCao.Name = "btnBaoCao";
-            this.btnBaoCao.Size = new System.Drawing.Size(59, 23);
-            this.btnBaoCao.TabIndex = 12;
-            this.btnBaoCao.Text = "Báo cáo";
-            this.btnBaoCao.UseVisualStyleBackColor = true;
-            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
-            // 
             // frmDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,6 +342,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMASV;
         private DevExpress.XtraGrid.Columns.GridColumn colHOTEN;
         private DevExpress.XtraGrid.Columns.GridColumn colDIEM;
-        private System.Windows.Forms.Button btnBaoCao;
+        private System.Windows.Forms.Button btnInDSDiem;
     }
 }

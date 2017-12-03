@@ -16,14 +16,14 @@ namespace QLDSV {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReportDSSV : ReportClass {
+    public class rptDanhSachDiem : ReportClass {
         
-        public ReportDSSV() {
+        public rptDanhSachDiem() {
         }
         
         public override string ResourceName {
             get {
-                return "ReportDSSV.rpt";
+                return "rptDanhSachDiem.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace QLDSV {
         
         public override string FullResourceName {
             get {
-                return "QLDSV.ReportDSSV.rpt";
+                return "QLDSV.rptDanhSachDiem.rpt";
             }
             set {
                 // Do nothing
@@ -87,20 +87,12 @@ namespace QLDSV {
                 return this.ReportDefinition.Sections[4];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtTenLop {
-            get {
-                return this.DataDefinition.ParameterFields[0];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReportDSSV : Component, ICachedReport {
+    public class CachedrptDanhSachDiem : Component, ICachedReport {
         
-        public CachedReportDSSV() {
+        public CachedrptDanhSachDiem() {
         }
         
         [Browsable(false)]
@@ -137,7 +129,7 @@ namespace QLDSV {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReportDSSV rpt = new ReportDSSV();
+            rptDanhSachDiem rpt = new rptDanhSachDiem();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -410,6 +410,14 @@ namespace QLDSV
         {
             Close();
         }
+
+        private void btnInDSSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmBaoCaoDSSV f = new frmBaoCaoDSSV();
+            f.setMaLop(cmbLop.SelectedValue.ToString());
+            f.setTenLop(cmbLop.Text);
+            f.ShowDialog();
+        }
     }
 
     public class UndoSinhVien
