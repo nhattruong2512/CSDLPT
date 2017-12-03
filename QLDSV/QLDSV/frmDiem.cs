@@ -161,11 +161,6 @@ namespace QLDSV
             initDataGcNhapDiem();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            updateView(!hienBangDiem);
-        }
-
         private void cmbLop_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -217,13 +212,7 @@ namespace QLDSV
         {
         }
 
-        private void btnBaoCao_Click(object sender, EventArgs e)
-        {
-            frmBaoCaoDSSV f = new frmBaoCaoDSSV();
-            f.ShowDialog();
-        }
-
-        private void btnInDsDiem_Click(object sender, EventArgs e)
+        private void btnInDanhSachDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmBaoCaoDanhSachDiem f = new frmBaoCaoDanhSachDiem();
             f.setMaLop(cmbLop.SelectedValue.ToString());
@@ -232,6 +221,11 @@ namespace QLDSV
             f.seTenMonHoc(cmbMonHoc.Text.ToString());
             f.setLanThi(cmbLanThi.Text.ToString());
             f.ShowDialog();
+        }
+
+        private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
         }
        
     }

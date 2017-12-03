@@ -62,7 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DS1.Designer.cs">
+    <Compile Include="DS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
@@ -90,6 +90,12 @@
     </Compile>
     <Compile Include="frmDiem.Designer.cs">
       <DependentUpon>frmDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInPhieuDiemThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInPhieuDiemThi.Designer.cs">
+      <DependentUpon>frmInPhieuDiemThi.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLop.cs">
       <SubType>Form</SubType>
@@ -134,6 +140,12 @@
       <DependentUpon>rptDanhSachDiem.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptInPhieuDiemThi.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptInPhieuDiemThi.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="frmBaoCaoDanhSachDiem.resx">
       <DependentUpon>frmBaoCaoDanhSachDiem.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiem.resx">
       <DependentUpon>frmDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInPhieuDiemThi.resx">
+      <DependentUpon>frmInPhieuDiemThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLop.resx">
       <DependentUpon>frmLop.cs</DependentUpon>
@@ -176,6 +191,10 @@
     <EmbeddedResource Include="rptDanhSachDiem.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptDanhSachDiem.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptInPhieuDiemThi.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInPhieuDiemThi.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="DS.xsc">
