@@ -196,7 +196,7 @@ namespace QLDSV
                 try
                 {
                    
-                    UndoLop undo = new UndoLop(XOA, getInfoSinhVien());
+                    UndoSinhVien undo = new UndoSinhVien(XOA, getInfoSinhVien());
                     st.Push(undo);
 
                     maSV = ((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString(); // giữ lại để khi xóa bij lỗi thì ta sẽ quay về lại
@@ -356,14 +356,15 @@ namespace QLDSV
             gcSinhVien.Enabled = true;
             groupBox1.Enabled = false;
             btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = true;
-            btnGhi.Enabled = btnPhucHoi.Enabled = false;
-
-            this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.SinhVienTableAdapter.Update(this.DS.SINHVIEN);
+            btnGhi.Enabled = false;
 
             if (isDangThaoTac)
             {
-                if (choose == HIEU_CHINH) st.Pop();
+                if (choose == HIEU_CHINH)
+                {
+                    st.Pop();
+                    reload();
+                }
                 else
                 {
                     bdsSinhVien.RemoveCurrent();
@@ -372,7 +373,10 @@ namespace QLDSV
                 isDangThaoTac = false;
                 return;
             }
-            
+
+            this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.SinhVienTableAdapter.Update(this.DS.SINHVIEN);
+
             bdsSinhVien.CancelEdit();
             if (btnThem.Enabled == false) bdsSinhVien.Position = vitri;
 
@@ -384,6 +388,12 @@ namespace QLDSV
 
             UndoSinhVien objUndo = (UndoSinhVien)st.Pop();
             Object obj = objUndo.getObject();
+
+            if (st.Count > 0)
+            {
+                btnPhucHoi.Enabled = true;
+            }
+
             switch (objUndo.getType())
             {
                 case THEM:
@@ -395,20 +405,20 @@ namespace QLDSV
                     SinhVien svHieuChinh = (SinhVien)obj;
                     if (Program.conn.State == ConnectionState.Closed)
                         Program.conn.Open();
-                    String strPhucHoiHieuChinh = "sp_PhucHoiSinhVien";
-                    Program.sqlcmd = Program.conn.CreateCommand();
-                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                    Program.sqlcmd.CommandText = strPhucHoiHieuChinh;
-                    Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.Text).Value = svHieuChinh.getMaSV();
-                    Program.sqlcmd.Parameters.Add("@HO", SqlDbType.Text).Value = svHieuChinh.getHo();
-                    Program.sqlcmd.Parameters.Add("@TEN", SqlDbType.Text).Value = svHieuChinh.getTen();
-                    Program.sqlcmd.Parameters.Add("@PHAI", SqlDbType.Bit).Value = svHieuChinh.isPhai();
-                    Program.sqlcmd.Parameters.Add("@NGAYSINH", SqlDbType.DateTime).Value = svHieuChinh.getNgaySinh();
-                    Program.sqlcmd.Parameters.Add("@NOISINH", SqlDbType.Text).Value = svHieuChinh.getNoiSinh();
-                    Program.sqlcmd.Parameters.Add("@DIACHI", SqlDbType.Text).Value = svHieuChinh.getDiaChi();
-                    Program.sqlcmd.Parameters.Add("@NGHIHOC", SqlDbType.Bit).Value = svHieuChinh.isNghiHoc();
-                    Program.sqlcmd.ExecuteNonQuery();
+
+                    String sqlHieuChinh =
+                        "exec sp_PhucHoiSinhVien N'" +
+                        svHieuChinh.getMaSV() + "',N'" +
+                        svHieuChinh.getHo() + "',N'" +
+                        svHieuChinh.getTen() + "',N'" +
+                        svHieuChinh.isPhai() + "',N'" +
+                        svHieuChinh.getNgaySinh() + "',N'" + 
+                        svHieuChinh.getNoiSinh() + "',N'" + 
+                        svHieuChinh.getDiaChi() + "',N'" + 
+                        svHieuChinh.isNghiHoc() + "'";
+                    Program.ExecSqlDataTable(sqlHieuChinh);
                     Program.conn.Close();
+
                     reload();
                     break;
                 case XOA:

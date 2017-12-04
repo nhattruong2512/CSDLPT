@@ -255,10 +255,15 @@ namespace QLDSV
                 btnPhucHoi.Enabled = false;
                 return;
             }
-            else btnPhucHoi.Enabled = true;
 
             UndoLop objUndo = (UndoLop)st.Pop();
             Object obj = objUndo.obj;
+
+            if (st.Count > 0)
+            {
+                btnPhucHoi.Enabled = true;
+            }
+
             switch (objUndo.chucNang)
             {
                 case THEM:
