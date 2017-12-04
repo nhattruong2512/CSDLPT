@@ -24,6 +24,9 @@ namespace QLDSV
             this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVDataSet.V_DS_PHANMANH);
             cmbTenKhoa.SelectedIndex = 1;
             cmbTenKhoa.SelectedIndex = 0;
+
+            txtTenDangNhap.Text = "NHS";
+            txtMatKhau.Text = "726625";
         }
 
         private void cmbTenKhoa_SelectedIndexChanged(object sender, EventArgs e)

@@ -91,6 +91,12 @@
     <Compile Include="frmDiem.Designer.cs">
       <DependentUpon>frmDiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInPhieDiemCaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInPhieDiemCaNhan.Designer.cs">
+      <DependentUpon>frmInPhieDiemCaNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInPhieuDiemThi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,12 @@
       <DependentUpon>rptDanhSachDiem.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptInPhieuDiemCaNhan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptInPhieuDiemCaNhan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="rptInPhieuDiemThi.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -157,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiem.resx">
       <DependentUpon>frmDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInPhieDiemCaNhan.resx">
+      <DependentUpon>frmInPhieDiemCaNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInPhieuDiemThi.resx">
       <DependentUpon>frmInPhieuDiemThi.cs</DependentUpon>
@@ -192,6 +207,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptDanhSachDiem.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptInPhieuDiemCaNhan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInPhieuDiemCaNhan.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="rptInPhieuDiemThi.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptInPhieuDiemThi.cs</LastGenOutput>
@@ -203,7 +222,6 @@
     <None Include="DS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS.Designer.cs</LastGenOutput>
     </None>
     <None Include="DS.xss">
       <DependentUpon>DS.xsd</DependentUpon>

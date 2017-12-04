@@ -33,6 +33,7 @@
             this.dS = new QLDSV.DS();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.lOPTableAdapter = new QLDSV.DSTableAdapters.LOPTableAdapter();
+            this.cachedReportDSSV1 = new QLDSV.CachedReportDSSV();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             this.SuspendLayout();
@@ -84,5 +85,6 @@
         private DS dS;
         private System.Windows.Forms.BindingSource lOPBindingSource;
         private DSTableAdapters.LOPTableAdapter lOPTableAdapter;
+        private CachedReportDSSV cachedReportDSSV1;
     }
 }

@@ -49,6 +49,9 @@ namespace QLDSV
 
             rptDanhSachDiem rp = new rptDanhSachDiem();
             rp.SetDataSource(MyTable);
+            rp.SetParameterValue("TENLOP", tenLop);
+            rp.SetParameterValue("MONHOC", tenMonHoc);
+            rp.SetParameterValue("LANTHI", lanThi);
             crystalReportViewer1.ReportSource = rp;
         }
     }

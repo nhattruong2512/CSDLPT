@@ -38,6 +38,7 @@ namespace QLDSV
 
             ReportDSSV rp = new ReportDSSV();
             rp.SetDataSource(MyTable);
+            rp.SetParameterValue("TENLOP", tenLop);
             crystalReportViewer1.ReportSource = rp;
 
         }

@@ -38,6 +38,7 @@
             this.btnMonHoc = new DevExpress.XtraBars.BarButtonItem();
             this.btnDiem = new DevExpress.XtraBars.BarButtonItem();
             this.btnInPhieuDiemThi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnInPhieuDiemCaNhan = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -47,14 +48,13 @@
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.MAGV = new System.Windows.Forms.ToolStripStatusLabel();
             this.HOTEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.NHOM = new System.Windows.Forms.ToolStripStatusLabel();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -72,7 +72,7 @@
             this.btnMonHoc,
             this.btnDiem,
             this.btnInPhieuDiemThi,
-            this.barButtonItem1});
+            this.btnInPhieuDiemCaNhan});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonControl1.MaxItemId = 9;
@@ -138,10 +138,19 @@
             // 
             this.btnInPhieuDiemThi.Caption = "In phiếu điểm thi";
             this.btnInPhieuDiemThi.Id = 7;
-            this.btnInPhieuDiemThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBaoCao.ImageOptions.Image")));
-            this.btnInPhieuDiemThi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBaoCao.ImageOptions.LargeImage")));
+            this.btnInPhieuDiemThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInPhieuDiemThi.ImageOptions.Image")));
+            this.btnInPhieuDiemThi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnInPhieuDiemThi.ImageOptions.LargeImage")));
             this.btnInPhieuDiemThi.Name = "btnInPhieuDiemThi";
             this.btnInPhieuDiemThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInPhieuDiemThi_ItemClick);
+            // 
+            // btnInPhieuDiemCaNhan
+            // 
+            this.btnInPhieuDiemCaNhan.Caption = "In phiếu điểm cá nhân";
+            this.btnInPhieuDiemCaNhan.Id = 8;
+            this.btnInPhieuDiemCaNhan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnInPhieuDiemCaNhan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnInPhieuDiemCaNhan.Name = "btnInPhieuDiemCaNhan";
+            this.btnInPhieuDiemCaNhan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInPhieuDiemCaNhan_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -206,6 +215,12 @@
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "In phiếu điểm thi";
             // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.ItemLinks.Add(this.btnInPhieuDiemCaNhan);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.Text = "In phiếu điểm cá nhân";
+            // 
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
@@ -244,20 +259,6 @@
             // 
             this.ribbonPage5.Name = "ribbonPage5";
             this.ribbonPage5.Text = "ribbonPage5";
-            // 
-            // ribbonPageGroup7
-            // 
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.Text = "In phiếu điểm cá nhân";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "In phiếu điểm cá nhân";
-            this.barButtonItem1.Id = 8;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // frmMain
             // 
@@ -310,7 +311,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnInPhieuDiemCaNhan;
     }
 }
 
