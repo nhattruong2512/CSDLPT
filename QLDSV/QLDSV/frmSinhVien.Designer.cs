@@ -46,8 +46,8 @@
             this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
             this.btnGhi = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
-            this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.btnInDSSV = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -119,83 +119,83 @@
             // mASVLabel
             // 
             mASVLabel.AutoSize = true;
-            mASVLabel.Location = new System.Drawing.Point(45, 37);
+            mASVLabel.Location = new System.Drawing.Point(39, 37);
             mASVLabel.Name = "mASVLabel";
-            mASVLabel.Size = new System.Drawing.Size(40, 13);
+            mASVLabel.Size = new System.Drawing.Size(70, 13);
             mASVLabel.TabIndex = 0;
-            mASVLabel.Text = "MASV:";
+            mASVLabel.Text = "Mã sinh viên:";
             // 
             // mALOPLabel
             // 
             mALOPLabel.AutoSize = true;
             mALOPLabel.Location = new System.Drawing.Point(38, 128);
             mALOPLabel.Name = "mALOPLabel";
-            mALOPLabel.Size = new System.Drawing.Size(47, 13);
+            mALOPLabel.Size = new System.Drawing.Size(42, 13);
             mALOPLabel.TabIndex = 2;
-            mALOPLabel.Text = "MALOP:";
+            mALOPLabel.Text = "Mã lớp:";
             // 
             // hOLabel
             // 
             hOLabel.AutoSize = true;
             hOLabel.Location = new System.Drawing.Point(45, 70);
             hOLabel.Name = "hOLabel";
-            hOLabel.Size = new System.Drawing.Size(26, 13);
+            hOLabel.Size = new System.Drawing.Size(24, 13);
             hOLabel.TabIndex = 4;
-            hOLabel.Text = "HO:";
+            hOLabel.Text = "Họ:";
             // 
             // tENLabel
             // 
             tENLabel.AutoSize = true;
             tENLabel.Location = new System.Drawing.Point(44, 100);
             tENLabel.Name = "tENLabel";
-            tENLabel.Size = new System.Drawing.Size(32, 13);
+            tENLabel.Size = new System.Drawing.Size(29, 13);
             tENLabel.TabIndex = 6;
-            tENLabel.Text = "TEN:";
+            tENLabel.Text = "Tên:";
             // 
             // nGAYSINHLabel
             // 
             nGAYSINHLabel.AutoSize = true;
             nGAYSINHLabel.Location = new System.Drawing.Point(355, 34);
             nGAYSINHLabel.Name = "nGAYSINHLabel";
-            nGAYSINHLabel.Size = new System.Drawing.Size(66, 13);
+            nGAYSINHLabel.Size = new System.Drawing.Size(57, 13);
             nGAYSINHLabel.TabIndex = 8;
-            nGAYSINHLabel.Text = "NGAYSINH:";
+            nGAYSINHLabel.Text = "Ngày sinh:";
             // 
             // nOISINHLabel
             // 
             nOISINHLabel.AutoSize = true;
             nOISINHLabel.Location = new System.Drawing.Point(352, 62);
             nOISINHLabel.Name = "nOISINHLabel";
-            nOISINHLabel.Size = new System.Drawing.Size(55, 13);
+            nOISINHLabel.Size = new System.Drawing.Size(48, 13);
             nOISINHLabel.TabIndex = 10;
-            nOISINHLabel.Text = "NOISINH:";
+            nOISINHLabel.Text = "Nơi sinh:";
             // 
             // dIACHILabel
             // 
             dIACHILabel.AutoSize = true;
             dIACHILabel.Location = new System.Drawing.Point(355, 92);
             dIACHILabel.Name = "dIACHILabel";
-            dIACHILabel.Size = new System.Drawing.Size(46, 13);
+            dIACHILabel.Size = new System.Drawing.Size(43, 13);
             dIACHILabel.TabIndex = 12;
-            dIACHILabel.Text = "DIACHI:";
+            dIACHILabel.Text = "Địa chỉ:";
             // 
             // pHAILabel
             // 
             pHAILabel.AutoSize = true;
             pHAILabel.Location = new System.Drawing.Point(357, 124);
             pHAILabel.Name = "pHAILabel";
-            pHAILabel.Size = new System.Drawing.Size(35, 13);
+            pHAILabel.Size = new System.Drawing.Size(31, 13);
             pHAILabel.TabIndex = 14;
-            pHAILabel.Text = "PHAI:";
+            pHAILabel.Text = "Phái:";
             // 
             // nGHIHOCLabel
             // 
             nGHIHOCLabel.AutoSize = true;
             nGHIHOCLabel.Location = new System.Drawing.Point(501, 122);
             nGHIHOCLabel.Name = "nGHIHOCLabel";
-            nGHIHOCLabel.Size = new System.Drawing.Size(60, 13);
+            nGHIHOCLabel.Size = new System.Drawing.Size(53, 13);
             nGHIHOCLabel.TabIndex = 16;
-            nGHIHOCLabel.Text = "NGHIHOC:";
+            nGHIHOCLabel.Text = "Nghỉ học:";
             // 
             // barManager1
             // 
@@ -277,14 +277,6 @@
             this.btnPhucHoi.Name = "btnPhucHoi";
             this.btnPhucHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhucHoi_ItemClick);
             // 
-            // btnThoat
-            // 
-            this.btnThoat.Caption = "Thoát";
-            this.btnThoat.Id = 5;
-            this.btnThoat.ImageOptions.Image = global::QLDSV.Properties.Resources.Exit_24_icon;
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
-            // 
             // btnInDSSV
             // 
             this.btnInDSSV.Caption = "In danh sách sinh viên";
@@ -292,6 +284,14 @@
             this.btnInDSSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInDSSV.ImageOptions.Image")));
             this.btnInDSSV.Name = "btnInDSSV";
             this.btnInDSSV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInDSSV_ItemClick);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Caption = "Thoát";
+            this.btnThoat.Id = 5;
+            this.btnThoat.ImageOptions.Image = global::QLDSV.Properties.Resources.Exit_24_icon;
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
             // 
             // bar3
             // 
@@ -417,6 +417,7 @@
             this.tableAdapterManager.LOPTableAdapter = this.LopTableAdapter;
             this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.SINHVIENTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QLDSV.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // LopTableAdapter
             // 
@@ -607,7 +608,7 @@
             this.txtTen.Location = new System.Drawing.Point(112, 97);
             this.txtTen.MenuManager = this.barManager1;
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(100, 20);
+            this.txtTen.Size = new System.Drawing.Size(150, 20);
             this.txtTen.TabIndex = 7;
             // 
             // txtHo
@@ -616,7 +617,7 @@
             this.txtHo.Location = new System.Drawing.Point(112, 67);
             this.txtHo.MenuManager = this.barManager1;
             this.txtHo.Name = "txtHo";
-            this.txtHo.Size = new System.Drawing.Size(100, 20);
+            this.txtHo.Size = new System.Drawing.Size(150, 20);
             this.txtHo.TabIndex = 5;
             // 
             // txtMaLop

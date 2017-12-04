@@ -22,7 +22,7 @@ namespace QLDSV
         int choose = -1;
         int vitri = 0;
         string maKhoa = "";
-        bool isDangThem = false;
+        bool isDangThaoTac = false;
 
         public frmLop()
         {
@@ -67,11 +67,11 @@ namespace QLDSV
             bdsLop.AddNew();
             txtMaKhoa.Text = maKhoa;
             txtMaLop.Enabled = true;
-            btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = false;
+            btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
             gcLop.Enabled = false;
             choose = THEM;
-            isDangThem = true;
+            isDangThaoTac = true;
         }
 
         private void btnHieuChinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -83,13 +83,11 @@ namespace QLDSV
             txtMaLop.Enabled = txtMaKhoa.Enabled = false;
             gcLop.Enabled = false;
             choose = HIEU_CHINH;
+            isDangThaoTac = true;
 
             Lop lop = new Lop(txtMaLop.Text, txtTenLop.Text, txtMaKhoa.Text);
             UndoLop undo = new UndoLop(HIEU_CHINH, lop);
             st.Push(undo);
-
-            capNhatBtnPhucHoi();
-
         }
 
         private void capNhatBtnPhucHoi()
@@ -185,7 +183,7 @@ namespace QLDSV
                     btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = true;
                     btnGhi.Enabled = false;
                     groupBox1.Enabled = false;
-                    isDangThem = false;
+                    isDangThaoTac = false;
                     break;
 
                 case HIEU_CHINH:
@@ -198,19 +196,15 @@ namespace QLDSV
 
                     if (Program.conn.State == ConnectionState.Closed)
                         Program.conn.Open();
-                    String strLenhKiemTraTenLop = "dbo.sp_KTTENLOP";
-                    Program.sqlcmd = Program.conn.CreateCommand();
-                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                    Program.sqlcmd.CommandText = strLenhKiemTraTenLop;
-                    Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.Text).Value = convertStringToUTF8(txtTenLop.Text.Trim());
-                    Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
-                    Program.sqlcmd.ExecuteNonQuery();
-                    Program.conn.Close();
-                    String RetKiemTraTenLop = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
-                    if (RetKiemTraTenLop == "1")
+
+                    String strLenhKiemTraTenLop = "exec dbo.sp_KTTENLOP N'" + txtTenLop.Text + "'";
+                    DataTable dtKTTenLop = Program.ExecSqlDataTable(strLenhKiemTraTenLop);
+
+                    if (dtKTTenLop.Rows.Count > 0)
                     {
-                        MessageBox.Show("Tên lớp bị trùng!", "", MessageBoxButtons.OK);
+                        MessageBox.Show("Tên lớp bị trùng!");
                         txtTenLop.Focus();
+                        Program.conn.Close();
                         return;
                     }
 
@@ -225,35 +219,43 @@ namespace QLDSV
                     catch (Exception ex)
                     {
                         MessageBox.Show("Lỗi hiệu chỉnh nhân viên.\n" + ex.Message, "", MessageBoxButtons.OK);
+                        st.Pop();
                         return;
                     }
                     gcLop.Enabled = true;
                     btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = true;
                     btnGhi.Enabled = false;
-
                     groupBox1.Enabled = false;
-
+                    isDangThaoTac = false;
                     break;
             }
         }
 
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (isDangThem)
+            gcLop.Enabled = true;
+            groupBox1.Enabled = false;
+            btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = true;
+            btnGhi.Enabled = false;
+
+            if (isDangThaoTac)
             {
+                if (choose == HIEU_CHINH) st.Pop();
                 reload();
                 capNhatBtnPhucHoi();
-                isDangThem = false;
+                isDangThaoTac = false;
+                return;
             }
 
             bdsLop.CancelEdit();
             if (btnThem.Enabled == false) bdsLop.Position = vitri;
-            gcLop.Enabled = true;
-            groupBox1.Enabled = false;
-            btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = true;
-            btnGhi.Enabled = btnPhucHoi.Enabled = false;
 
-            if (st.Count == 0) return;
+            if (st.Count == 0)
+            {
+                btnPhucHoi.Enabled = false;
+                return;
+            }
+            else btnPhucHoi.Enabled = true;
 
             UndoLop objUndo = (UndoLop)st.Pop();
             Object obj = objUndo.obj;
@@ -262,6 +264,7 @@ namespace QLDSV
                 case THEM:
                     Program.ExecSqlDataReader(obj.ToString());
                     this.LopTableAdapter.Fill(this.DS.LOP);
+                    Program.conn.Close();
                     capNhatBtnPhucHoi();
                     break;
                 case HIEU_CHINH:
@@ -271,14 +274,6 @@ namespace QLDSV
 
                     String sqlHieuChinh = "exec sp_PhucHoiLopHieuChinh N'" + lopHieuChinh.maLop + "',N'" + lopHieuChinh.tenLop + "'";
                     Program.ExecSqlDataTable(sqlHieuChinh);
-
-                    //String strPhucHoiHieuChinh = "sp_PhucHoiLopHieuChinh";
-                    //Program.sqlcmd = Program.conn.CreateCommand();
-                    //Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                    //Program.sqlcmd.CommandText = strPhucHoiHieuChinh;
-                    //Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.Text).Value = lopHieuChinh.maLop;
-                    //Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.Text).Value = lopHieuChinh.tenLop;
-                    //Program.sqlcmd.ExecuteNonQuery();
                     Program.conn.Close();
                     reload();
                     break;
@@ -288,16 +283,7 @@ namespace QLDSV
                         Program.conn.Open();
 
                     String sql = "exec sp_ThemLop N'" + lopXoa + "',N'" + lopXoa.tenLop + "',N'" + lopXoa.maKhoa + "'";
-                    Program.ExecSqlDataTable(sql);
-
-                    //String strPhucHoiXoa = "sp_ThemLop";
-                    //Program.sqlcmd = Program.conn.CreateCommand();
-                    //Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                    //Program.sqlcmd.CommandText = strPhucHoiXoa;
-                    //Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.Text).Value = lopXoa.maLop;
-                    //Program.sqlcmd.Parameters.Add("@TENLOP", SqlDbType.Text).Value = lopXoa.tenLop;
-                    //Program.sqlcmd.Parameters.Add("@MAKHOA", SqlDbType.Text).Value = lopXoa.maKhoa;
-                    //Program.sqlcmd.ExecuteNonQuery();
+                    Program.conn.Close();
                     reload();
                     break;
             }
@@ -325,7 +311,6 @@ namespace QLDSV
                     this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.LopTableAdapter.Update(this.DS.LOP);
 
-                    
                     capNhatBtnPhucHoi();
                 }
                 catch (Exception ex)

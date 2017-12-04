@@ -37,6 +37,7 @@ namespace QLDSV
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+
             if (txtTenDangNhap.Text.Trim() == "" || txtMatKhau.Text.Trim() == "")
             {
                 MessageBox.Show("Login name và mật mã không được trống", "", MessageBoxButtons.OK);
@@ -69,6 +70,7 @@ namespace QLDSV
             //Program.frmMain.MAGV.Text = "Mã NV = " + Program.username;
             //Program.frmMain.TENGV.Text = "Họ tên= " + Program.mHoten;
             //Program.frmMain.KHOA.Text = "Nhóm = " + Program.mGroup;
+            this.Hide();
             Program.frmMain.HienThiMenu();
 
         }

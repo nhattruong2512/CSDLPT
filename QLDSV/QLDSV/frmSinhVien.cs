@@ -22,7 +22,7 @@ namespace QLDSV
         int vitri = 0;
         string maLop = "";
         String maSV = "";
-        bool isDangThem = false;
+        bool isDangThaoTac = false;
 
         public frmSinhVien()
         {
@@ -129,12 +129,12 @@ namespace QLDSV
             groupBox1.Enabled = true;
             bdsSinhVien.AddNew();
             txtMaLop.Text = maLop;
-            btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = false;
+            btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = txtMASV.Enabled = true;
             txtMaLop.Enabled = false;
             gcSinhVien.Enabled = false;
             choose = THEM;
-            isDangThem = true;
+            isDangThaoTac = true;
         }
 
         private void btnHieuChinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -146,9 +146,10 @@ namespace QLDSV
             txtMaLop.Enabled = txtMASV.Enabled = false;
             gcSinhVien.Enabled = false;
             choose = HIEU_CHINH;
+            isDangThaoTac = true;
 
-            UndoSinhVien undo = new UndoSinhVien(HIEU_CHINH, getInfoSinhVien());
-            st.Push(undo);
+            UndoSinhVien undoSV = new UndoSinhVien(HIEU_CHINH, getInfoSinhVien());
+            st.Push(undoSV);
         }
 
         private bool checkEmtyInfo()
@@ -160,12 +161,12 @@ namespace QLDSV
             }
             if (txtHo.Text.Trim() == "")
             {
-                MessageBox.Show("Họ rỗng!");
+                MessageBox.Show("Họ sinh viên rỗng!");
                 return false;
             }
             if (txtTen.Text.Trim() == "")
             {
-                MessageBox.Show("Tên rỗng");
+                MessageBox.Show("Tên sinh viên rỗng");
                 return false;
             }
             if (txtMaLop.Text.Trim() == "")
@@ -225,6 +226,27 @@ namespace QLDSV
             {
                 case THEM:
                     {
+                        if (txtMASV.Text.Trim() == "")
+                        {
+                            MessageBox.Show("Mã sinh viên không được thiếu!", "", MessageBoxButtons.OK);
+                            txtMASV.Focus();
+                            return;
+                        }
+
+                        if (txtHo.Text.Trim() == "")
+                        {
+                            MessageBox.Show("Họ sinh viên không được thiếu!", "", MessageBoxButtons.OK);
+                            txtHo.Focus();
+                            return;
+                        }
+
+                        if (txtTen.Text.Trim() == "")
+                        {
+                            MessageBox.Show("Tên sinh viên không được thiếu!", "", MessageBoxButtons.OK);
+                            txtTen.Focus();
+                            return;
+                        }
+
                         if (Program.conn.State == ConnectionState.Closed)
                             Program.conn.Open();
 
@@ -268,12 +290,25 @@ namespace QLDSV
                         btnGhi.Enabled = false;
                         groupBox1.Enabled = false;
                         capNhatBtnPhucHoi();
-                        isDangThem = false;
+                        isDangThaoTac = false;
                         break;
                     }
 
                 case HIEU_CHINH:
                     {
+                        if (txtHo.Text.Trim() == "")
+                        {
+                            MessageBox.Show("Họ sinh viên không được thiếu!", "", MessageBoxButtons.OK);
+                            txtHo.Focus();
+                            return;
+                        }
+
+                        if (txtTen.Text.Trim() == "")
+                        {
+                            MessageBox.Show("Tên sinh viên không được thiếu!", "", MessageBoxButtons.OK);
+                            txtTen.Focus();
+                            return;
+                        }
 
                         try
                         {
@@ -285,6 +320,7 @@ namespace QLDSV
                         }
                         catch (Exception ex)
                         {
+                            st.Pop();
                             MessageBox.Show("Lỗi hiệu chỉnh sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
                             return;
                         }
@@ -293,6 +329,7 @@ namespace QLDSV
                         btnGhi.Enabled = btnPhucHoi.Enabled = false;
                         groupBox1.Enabled = false;
                         capNhatBtnPhucHoi();
+                        isDangThaoTac = false;
                         break;
                     }
                    
@@ -316,17 +353,34 @@ namespace QLDSV
 
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (isDangThem) bdsSinhVien.RemoveCurrent();
-            this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.SinhVienTableAdapter.Update(this.DS.SINHVIEN);
-            bdsSinhVien.CancelEdit();
-            if (btnThem.Enabled == false) bdsSinhVien.Position = vitri;
             gcSinhVien.Enabled = true;
             groupBox1.Enabled = false;
             btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = true;
             btnGhi.Enabled = btnPhucHoi.Enabled = false;
 
-            if (st.Count == 0) return;
+            this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.SinhVienTableAdapter.Update(this.DS.SINHVIEN);
+
+            if (isDangThaoTac)
+            {
+                if (choose == HIEU_CHINH) st.Pop();
+                else
+                {
+                    bdsSinhVien.RemoveCurrent();
+                }
+                capNhatBtnPhucHoi();
+                isDangThaoTac = false;
+                return;
+            }
+            
+            bdsSinhVien.CancelEdit();
+            if (btnThem.Enabled == false) bdsSinhVien.Position = vitri;
+
+            if (st.Count == 0)
+            {
+                btnPhucHoi.Enabled = false;
+                return;
+            }
 
             UndoSinhVien objUndo = (UndoSinhVien)st.Pop();
             Object obj = objUndo.getObject();

@@ -35,7 +35,7 @@ namespace QLDSV
         private void btnDangNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Form frm = this.CheckExists(typeof(frmDangNhap));
-            if (frm != null) frm.Activate();
+            if (frm != null) frm.Show();
             else
             {
                 frmDangNhap f = new frmDangNhap();
