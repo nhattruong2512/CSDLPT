@@ -389,6 +389,11 @@ namespace QLDSV
             }
         }
 
+        private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
+        }
+
     }
 
     public class Lop

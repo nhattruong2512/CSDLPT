@@ -127,10 +127,10 @@ namespace QLDSV
             {
                 this.NhapDiemTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.NhapDiemTableAdapter.Fill(
-                    this.dS.sp_FormNhapDiem,
+                    this.dS.sp_BangDiem,
                     cmbLop.SelectedValue.ToString(),
                     cmbMonHoc.SelectedValue.ToString(),
-                    short.Parse(cmbLanThi.SelectedValue.ToString()
+                    short.Parse(cmbLanThi.SelectedValue.ToString())
                );
             }
             catch (System.Exception ex)
@@ -140,6 +140,7 @@ namespace QLDSV
             }
 
             this.NhapDiemTableAdapter.Connection.ConnectionString = Program.connstr;
+
             DataTable data = this.NhapDiemTableAdapter.GetData(
                                                   cmbLop.SelectedValue.ToString(),
                                                   cmbMonHoc.SelectedValue.ToString(),
@@ -158,11 +159,6 @@ namespace QLDSV
             gcNhapDiem.Show();
             updateView(hienBangDiem);
             initDataGcNhapDiem();
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            updateView(!hienBangDiem);
         }
 
         private void cmbLop_SelectedIndexChanged(object sender, EventArgs e)
@@ -216,5 +212,21 @@ namespace QLDSV
         {
         }
 
+        private void btnInDanhSachDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmBaoCaoDanhSachDiem f = new frmBaoCaoDanhSachDiem();
+            f.setMaLop(cmbLop.SelectedValue.ToString());
+            f.setTenLop(cmbLop.Text.ToString());
+            f.setMaMonHoc(cmbMonHoc.SelectedValue.ToString());
+            f.seTenMonHoc(cmbMonHoc.Text.ToString());
+            f.setLanThi(cmbLanThi.Text.ToString());
+            f.ShowDialog();
+        }
+
+        private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
+        }
+       
     }
 }

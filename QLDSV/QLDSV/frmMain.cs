@@ -105,5 +105,37 @@ namespace QLDSV
             }
         }
 
+        private void btnBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmBaoCaoDSSV f = new frmBaoCaoDSSV();
+            
+            f.ShowDialog();
+        }
+
+        private void btnInPhieuDiemThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmInPhieuDiemThi));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmInPhieuDiemThi f = new frmInPhieuDiemThi();
+                f.MdiParent = this;
+                f.Show();
+            }
+
+        }
+
+        private void btnInPhieuDiemCaNhan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmInPhieDiemCaNhan));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmInPhieDiemCaNhan f = new frmInPhieDiemCaNhan();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
     }
 }
