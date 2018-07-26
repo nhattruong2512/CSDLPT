@@ -149,7 +149,7 @@ namespace QLDSV
 
             if (data.Rows.Count == 0)
             {
-                MessageBox.Show("Data null");
+                MessageBox.Show("Không có dữ liệu!");
                 updateView(!hienBangDiem);
             }
         }
@@ -181,7 +181,20 @@ namespace QLDSV
             foreach (DataRowView row in bdsNhapDiem)
             {
                 maSV = row["MASV"].ToString().Trim();
-                if (row["DIEM"].ToString().Trim() != "")
+                String diemStr = row["DIEM"].ToString().Trim() ;
+                try
+                {
+                    if (float.Parse(diemStr) < 0 || float.Parse(diemStr) > 10)
+                    {
+                        MessageBox.Show("Chỉ được nhập điểm từ 0 đến 10");
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                if (diemStr != "")
                 {
                     diem = float.Parse(row["DIEM"].ToString());
                     table.Rows.Add(maSV, maMH, lan, diem);
@@ -201,9 +214,9 @@ namespace QLDSV
             dpt.Fill(ds);
 
             if (ds.Rows.Count > 0)
-                MessageBox.Show("CẬP NHẬT ĐIỂM THÀNH CÔNG!");
+                MessageBox.Show("Cập nhật điểm thành công!");
             else
-                MessageBox.Show("CẬP NHẬT ĐIỂM THẤT BẠI!");
+                MessageBox.Show("Cập nhật điểm thất bại!");
 
             updateView(!hienBangDiem);
         }

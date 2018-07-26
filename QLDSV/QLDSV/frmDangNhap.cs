@@ -67,9 +67,6 @@ namespace QLDSV
             Program.mGroup = Program.myReader.GetString(2);
             Program.myReader.Close();
             Program.conn.Close();
-            //Program.frmMain.MAGV.Text = "Mã NV = " + Program.username;
-            //Program.frmMain.TENGV.Text = "Họ tên= " + Program.mHoten;
-            //Program.frmMain.KHOA.Text = "Nhóm = " + Program.mGroup;
             this.Hide();
             Program.frmMain.HienThiMenu();
 

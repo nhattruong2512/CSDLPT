@@ -287,7 +287,8 @@ namespace QLDSV
                     if (Program.conn.State == ConnectionState.Closed)
                         Program.conn.Open();
 
-                    String sql = "exec sp_ThemLop N'" + lopXoa + "',N'" + lopXoa.tenLop + "',N'" + lopXoa.maKhoa + "'";
+                    String sql = "exec sp_ThemLop N'" + lopXoa.maLop + "',N'" + lopXoa.tenLop + "',N'" + lopXoa.maKhoa + "'";
+                    Program.ExecSqlDataTable(sql);
                     Program.conn.Close();
                     reload();
                     break;

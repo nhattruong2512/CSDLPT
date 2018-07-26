@@ -84,8 +84,8 @@
             this.txtNgaySinh = new DevExpress.XtraEditors.DateEdit();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtHo = new DevExpress.XtraEditors.TextEdit();
-            this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
             this.txtMASV = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
             mASVLabel = new System.Windows.Forms.Label();
             mALOPLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
@@ -112,8 +112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNgaySinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // mASVLabel
@@ -525,6 +525,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtMaLop);
             this.groupBox1.Controls.Add(nGHIHOCLabel);
             this.groupBox1.Controls.Add(this.chkNghiHoc);
             this.groupBox1.Controls.Add(pHAILabel);
@@ -540,7 +541,6 @@
             this.groupBox1.Controls.Add(hOLabel);
             this.groupBox1.Controls.Add(this.txtHo);
             this.groupBox1.Controls.Add(mALOPLabel);
-            this.groupBox1.Controls.Add(this.txtMaLop);
             this.groupBox1.Controls.Add(mASVLabel);
             this.groupBox1.Controls.Add(this.txtMASV);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -620,15 +620,6 @@
             this.txtHo.Size = new System.Drawing.Size(150, 20);
             this.txtHo.TabIndex = 5;
             // 
-            // txtMaLop
-            // 
-            this.txtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "MALOP", true));
-            this.txtMaLop.Location = new System.Drawing.Point(112, 125);
-            this.txtMaLop.MenuManager = this.barManager1;
-            this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Size = new System.Drawing.Size(150, 20);
-            this.txtMaLop.TabIndex = 3;
-            // 
             // txtMASV
             // 
             this.txtMASV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "MASV", true));
@@ -637,6 +628,15 @@
             this.txtMASV.Name = "txtMASV";
             this.txtMASV.Size = new System.Drawing.Size(150, 20);
             this.txtMASV.TabIndex = 1;
+            // 
+            // txtMaLop
+            // 
+            this.txtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsLop, "MALOP", true));
+            this.txtMaLop.Location = new System.Drawing.Point(112, 125);
+            this.txtMaLop.MenuManager = this.barManager1;
+            this.txtMaLop.Name = "txtMaLop";
+            this.txtMaLop.Size = new System.Drawing.Size(150, 20);
+            this.txtMaLop.TabIndex = 19;
             // 
             // frmSinhVien
             // 
@@ -675,8 +675,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNgaySinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -721,7 +721,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
         private DevExpress.XtraGrid.Columns.GridColumn colNGHIHOC;
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.TextEdit txtMaLop;
         private DevExpress.XtraEditors.TextEdit txtMASV;
         private DevExpress.XtraEditors.CheckEdit chkNghiHoc;
         private DevExpress.XtraEditors.CheckEdit chkPhai;
@@ -731,5 +730,6 @@
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraEditors.TextEdit txtHo;
         private DevExpress.XtraBars.BarButtonItem btnInDSSV;
+        private DevExpress.XtraEditors.TextEdit txtMaLop;
     }
 }

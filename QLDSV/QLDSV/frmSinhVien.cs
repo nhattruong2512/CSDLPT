@@ -61,15 +61,21 @@ namespace QLDSV
             cmbLop.DataSource = this.bdsLop;
             cmbLop.SelectedItem = 1;
             cmbLop.SelectedItem = 0;
+
+            updateCombobox();
+
+        }
+
+        private void updateCombobox()
+        {
             if (Program.mGroup == "PGV")
-                cmbKhoa.Enabled = true;  
+                cmbKhoa.Enabled = true;
             else
                 cmbKhoa.Enabled = false;
             if (Program.mGroup == "PGV" || Program.mGroup == "Khoa")
                 cmbLop.Enabled = true;
             else
                 cmbLop.Enabled = false;
-
         }
 
         private void cmbLop_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,13 +113,15 @@ namespace QLDSV
             {
                 this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.LopTableAdapter.Fill(this.DS.LOP);
-                maLop = ((DataRowView)bdsSinhVien[0])["MALOP"].ToString();
+                cmbLop.SelectedItem = 1;
+                cmbLop.SelectedItem = 0;
+                //maLop = ((DataRowView)bdsSinhVien[0])["MALOP"].ToString();
 
-                if (choose == THEM)
-                {
-                    this.bdsSinhVien.AddNew();
-                    txtMaLop.Text = maLop;
-                }
+                //if (choose == THEM)
+                //{
+                //    this.bdsSinhVien.AddNew();
+                //    txtMaLop.Text = maLop;
+                //}
             }
         }
 
@@ -358,6 +366,8 @@ namespace QLDSV
             btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = true;
             btnGhi.Enabled = false;
 
+            updateCombobox();
+
             if (isDangThaoTac)
             {
                 if (choose == HIEU_CHINH)
@@ -418,27 +428,27 @@ namespace QLDSV
                         svHieuChinh.isNghiHoc() + "'";
                     Program.ExecSqlDataTable(sqlHieuChinh);
                     Program.conn.Close();
-
                     reload();
                     break;
                 case XOA:
                     SinhVien svXoa = (SinhVien)obj;
+                    bdsSinhVien.EndEdit();
+                    bdsSinhVien.ResetCurrentItem();
                     if (Program.conn.State == ConnectionState.Closed)
                         Program.conn.Open();
-                    String strPhucHoiXoa = "sp_ThemSinhVien";
-                    Program.sqlcmd = Program.conn.CreateCommand();
-                    Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                    Program.sqlcmd.CommandText = strPhucHoiXoa;
-                    Program.sqlcmd.Parameters.Add("@MASV", SqlDbType.Text).Value = svXoa.getMaSV();
-                    Program.sqlcmd.Parameters.Add("@HO", SqlDbType.Text).Value = svXoa.getHo();
-                    Program.sqlcmd.Parameters.Add("@TEN", SqlDbType.Text).Value = svXoa.getTen();
-                    Program.sqlcmd.Parameters.Add("@MALOP", SqlDbType.Text).Value = svXoa.getMaLop();
-                    Program.sqlcmd.Parameters.Add("@NGAYSINH", SqlDbType.DateTime).Value = svXoa.getNgaySinh();
-                    Program.sqlcmd.Parameters.Add("@PHAI", SqlDbType.Bit).Value = svXoa.isPhai();
-                    Program.sqlcmd.Parameters.Add("@NOISINH", SqlDbType.Text).Value = svXoa.getNoiSinh();
-                    Program.sqlcmd.Parameters.Add("@DIACHI", SqlDbType.Text).Value = svXoa.getDiaChi();
-                    Program.sqlcmd.Parameters.Add("@NGHIHOC", SqlDbType.Bit).Value = svXoa.isNghiHoc();
-                    Program.sqlcmd.ExecuteNonQuery();
+                    String strPhucHoiXoa = "exec sp_ThemSinhVien N'" +
+                        svXoa.getMaSV() + "',N'" +
+                        svXoa.getHo() + "',N'" +
+                        svXoa.getTen() + "',N'" +
+                        svXoa.getMaLop() + "',N'" +
+                        svXoa.isPhai() + "',N'" +
+                        svXoa.getNgaySinh() + "',N'" +
+                        svXoa.getNoiSinh() + "',N'" +
+                        svXoa.getDiaChi() + "',N'" +
+                        svXoa.isNghiHoc() + "'";
+                    Program.ExecSqlDataTable(strPhucHoiXoa);
+                    Program.conn.Close();
+
                     reload();
                     break;
             }

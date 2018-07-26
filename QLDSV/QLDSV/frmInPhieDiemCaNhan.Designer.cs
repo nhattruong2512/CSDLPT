@@ -29,16 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnIn = new System.Windows.Forms.Button();
-            this.txtMaSV = new System.Windows.Forms.TextBox();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.txtMaSV = new System.Windows.Forms.TextBox();
+            this.btnIn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.gridControl1);
             this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Controls.Add(this.txtMaSV);
             this.panel1.Controls.Add(this.btnIn);
@@ -48,32 +53,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(791, 69);
             this.panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã sinh viên";
-            // 
-            // btnIn
-            // 
-            this.btnIn.Location = new System.Drawing.Point(373, 19);
-            this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(75, 23);
-            this.btnIn.TabIndex = 2;
-            this.btnIn.Text = "In báo cáo";
-            this.btnIn.UseVisualStyleBackColor = true;
-            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
-            // 
-            // txtMaSV
-            // 
-            this.txtMaSV.Location = new System.Drawing.Point(112, 21);
-            this.txtMaSV.Name = "txtMaSV";
-            this.txtMaSV.Size = new System.Drawing.Size(186, 20);
-            this.txtMaSV.TabIndex = 3;
             // 
             // btnThoat
             // 
@@ -85,6 +64,32 @@
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // txtMaSV
+            // 
+            this.txtMaSV.Location = new System.Drawing.Point(112, 21);
+            this.txtMaSV.Name = "txtMaSV";
+            this.txtMaSV.Size = new System.Drawing.Size(186, 20);
+            this.txtMaSV.TabIndex = 3;
+            // 
+            // btnIn
+            // 
+            this.btnIn.Location = new System.Drawing.Point(373, 19);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(75, 23);
+            this.btnIn.TabIndex = 2;
+            this.btnIn.Text = "In báo cáo";
+            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(39, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Mã sinh viên";
+            // 
             // crystalReportViewer1
             // 
             this.crystalReportViewer1.ActiveViewIndex = -1;
@@ -95,6 +100,21 @@
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.Size = new System.Drawing.Size(791, 445);
             this.crystalReportViewer1.TabIndex = 1;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(400, 200);
+            this.gridControl1.TabIndex = 5;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
             // 
             // frmInPhieDiemCaNhan
             // 
@@ -108,6 +128,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -120,5 +142,7 @@
         private System.Windows.Forms.Button btnIn;
         private System.Windows.Forms.Label label1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }
