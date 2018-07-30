@@ -7551,6 +7551,11 @@ SELECT MASV, HO, TEN, MALOP, PHAI, NGAYSINH, NOISINH, DIACHI, NGHIHOC FROM SINHV
                     global::System.Nullable<bool> Original_NGHIHOC) {
             return this.Update(Original_MASV, HO, TEN, MALOP, PHAI, NGAYSINH, NOISINH, DIACHI, NGHIHOC, Original_MASV, Original_HO, Original_TEN, Original_MALOP, Original_PHAI, Original_NGAYSINH, Original_NOISINH, Original_DIACHI, Original_NGHIHOC);
         }
+
+        internal void FillBy(DS.SINHVIENDataTable sINHVIENDataTable)
+        {
+            throw new System.NotImplementedException();
+        }
     }
     
     /// <summary>

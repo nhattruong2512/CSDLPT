@@ -45,11 +45,19 @@ namespace QLDSV
 
         private void frmSinhVien_Load(object sender, EventArgs e)
         {
-            DS.EnforceConstraints = false;
-            this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
+            // TODO: This line of code loads data into the 'DS.SINHVIEN' table. You can move, or remove it, as needed.
             this.SinhVienTableAdapter.Fill(this.DS.SINHVIEN);
+            // TODO: This line of code loads data into the 'DS.LOP' table. You can move, or remove it, as needed.
+            this.LopTableAdapter.Fill(this.DS.LOP);
+          
+            
+            DS.EnforceConstraints = false;
+           
             this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
             this.LopTableAdapter.Fill(this.DS.LOP);
+
+            this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.SinhVienTableAdapter.Fill(this.DS.SINHVIEN);
 
             maLop = ((DataRowView)bdsSinhVien[0])["MALOP"].ToString();
             this.LopTableAdapter.Update(this.DS.LOP);
@@ -491,6 +499,29 @@ namespace QLDSV
             f.setMaLop(cmbLop.SelectedValue.ToString());
             f.setTenLop(cmbLop.Text);
             f.ShowDialog();
+        }
+
+        private void bdsSinhVien_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.SinhVienTableAdapter.FillBy(this.DS.SINHVIEN);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void bdsLop_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

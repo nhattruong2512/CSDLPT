@@ -26,7 +26,6 @@ D:\DeTaiCSDLPT\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.csproj.GenerateResource.Cache
 D:\DeTaiCSDLPT\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.exe.licenses
 D:\DeTaiCSDLPT\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmMonHoc.resources
 D:\DeTaiCSDLPT\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmDiem.resources
-D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.csprojResolveAssemblyReference.cache
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmBaoCaoDanhSachDiem.resources
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmBaoCaoDSSV.resources
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmDangNhap.resources
@@ -45,3 +44,4 @@ D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\bin\Debug\QLDSV.exe
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\bin\Debug\QLDSV.pdb
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.exe
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.pdb
+D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.csprojResolveAssemblyReference.cache

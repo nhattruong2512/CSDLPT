@@ -134,6 +134,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QLDSVDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDSVDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ReportDSSV.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -215,13 +220,16 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptInPhieuDiemThi.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DS.xsc">
       <DependentUpon>DS.xsd</DependentUpon>
     </None>
     <None Include="DS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS1.Designer.cs</LastGenOutput>
     </None>
     <None Include="DS.xss">
       <DependentUpon>DS.xsd</DependentUpon>
@@ -278,6 +286,17 @@
     <None Include="Images\Undo-icon-24.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="QLDSVDS.xsc">
+      <DependentUpon>QLDSVDS.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSVDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLDSVDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLDSVDS.xss">
+      <DependentUpon>QLDSVDS.xsd</DependentUpon>
+    </None>
     <None Include="Resources\back_24.png" />
   </ItemGroup>
   <ItemGroup>

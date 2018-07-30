@@ -26,7 +26,7 @@ namespace QLDSV
             cmbTenKhoa.SelectedIndex = 0;
 
             txtTenDangNhap.Text = "NHS";
-            txtMatKhau.Text = "726625";
+            txtMatKhau.Text = "123";
         }
 
         private void cmbTenKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace QLDSV
             Program.bds_dspm = bdsDSPM;
             Program.mloginDN = Program.mlogin;
             Program.passwordDN = Program.password;
-            string strLenh = "EXEC SP_DANGNHAP '" + Program.mlogin + "'";
+            string strLenh = "EXEC sp_DANGNHAP '" + Program.mlogin + "'";
 
             Program.myReader = Program.ExecSqlDataReader(strLenh);
             if (Program.myReader == null) return;
