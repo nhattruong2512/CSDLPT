@@ -32,7 +32,7 @@ namespace QLDSV
         {
             string strLenh;
             DataTable MyTable;
-            strLenh = "EXEC sp_DanhSachSinhVien '" + maLop + "'";
+            strLenh = "EXEC sp_InDsSinhVienTheoLop '" + maLop + "'";
 
             MyTable = Program.ExecSqlDataTable(strLenh);
 

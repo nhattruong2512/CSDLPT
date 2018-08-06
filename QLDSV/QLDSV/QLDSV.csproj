@@ -127,6 +127,12 @@
     <Compile Include="frmSinhVien.Designer.cs">
       <DependentUpon>frmSinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSinhVienn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSinhVienn.Designer.cs">
+      <DependentUpon>frmSinhVienn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLDSVDataSet.Designer.cs">
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSinhVien.resx">
       <DependentUpon>frmSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSinhVienn.resx">
+      <DependentUpon>frmSinhVienn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

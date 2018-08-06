@@ -211,7 +211,7 @@ namespace QLDSV
                             return;
                         }
 
-                        string sql = "exec sp_KTTenMonHoc N'" + txtTenMH.Text + "'";
+                        string sql = "exec sp_KiemTraTenMonHoc N'" + txtTenMH.Text + "'";
                         DataTable table = Program.ExecSqlDataTable(sql);
 
                         if (table.Rows.Count > 0)
@@ -256,7 +256,7 @@ namespace QLDSV
 
                         if (Program.conn.State == ConnectionState.Closed)
                             Program.conn.Open();
-                        String strKTTenMonHoc = "exec dbo.sp_KTTenMonHoc N'" + txtTenMH.Text + "'";
+                        String strKTTenMonHoc = "exec dbo.sp_KiemTraTenMonHoc N'" + txtTenMH.Text + "'";
                         DataTable table = Program.ExecSqlDataTable(strKTTenMonHoc);
 
                         if (table.Rows.Count > 0)

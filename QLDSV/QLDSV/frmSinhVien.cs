@@ -39,17 +39,11 @@ namespace QLDSV
         {
             this.Validate();
             this.bdsLop.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.DS);
-
+          
         }
 
         private void frmSinhVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DS.SINHVIEN' table. You can move, or remove it, as needed.
-            this.SinhVienTableAdapter.Fill(this.DS.SINHVIEN);
-            // TODO: This line of code loads data into the 'DS.LOP' table. You can move, or remove it, as needed.
-            this.LopTableAdapter.Fill(this.DS.LOP);
-          
             
             DS.EnforceConstraints = false;
            
@@ -59,7 +53,11 @@ namespace QLDSV
             this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.SinhVienTableAdapter.Fill(this.DS.SINHVIEN);
 
-            maLop = ((DataRowView)bdsSinhVien[0])["MALOP"].ToString();
+            if (bdsSinhVien.Count > 0)
+            {
+                maLop = ((DataRowView)bdsSinhVien[0])["MALOP"].ToString();
+            }
+            
             this.LopTableAdapter.Update(this.DS.LOP);
             this.SinhVienTableAdapter.Update(this.DS.SINHVIEN);
             cmbKhoa.DataSource = Program.bds_dspm;  // sao chép bds_dspm đã load ở form đăng nhập  qua
@@ -92,7 +90,6 @@ namespace QLDSV
                 MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
             else
             {
-
                 this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.SinhVienTableAdapter.Fill(this.DS.SINHVIEN);
             }

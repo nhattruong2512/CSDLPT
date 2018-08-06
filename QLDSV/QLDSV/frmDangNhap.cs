@@ -25,7 +25,7 @@ namespace QLDSV
             cmbTenKhoa.SelectedIndex = 1;
             cmbTenKhoa.SelectedIndex = 0;
 
-            txtTenDangNhap.Text = "NHS";
+            txtTenDangNhap.Text = "TDH";
             txtMatKhau.Text = "123";
         }
 
