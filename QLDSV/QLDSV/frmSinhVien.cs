@@ -187,7 +187,7 @@ namespace QLDSV
                 MessageBox.Show("Mã lớp rỗng!");
                 return false;
             }
-            if (txtNgaySinh.Text.Trim() == "")
+            if (txtSinh.Text.Trim() == "")
             {
                 MessageBox.Show("Ngày sinh rỗng!");
                 return false;
@@ -356,7 +356,7 @@ namespace QLDSV
             sv.setHo(txtHo.Text.ToString());
             sv.setTen(txtTen.Text.ToString());
             sv.setMaLop(txtMaLop.Text.ToString());
-            sv.setNgaySinh(txtNgaySinh.DateTime);
+            sv.setNgaySinh(txtSinh.DateTime);
             sv.setNoiSinh(txtNoiSinh.Text.ToString());
             sv.setDiaChi(txtDiaChi.Text.ToString());
             sv.setPhai(chkPhai.Checked);
@@ -519,6 +519,10 @@ namespace QLDSV
         private void bdsLop_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void chkPhai_CheckedChanged(object sender, EventArgs e)
+        {
         }
     }
 
