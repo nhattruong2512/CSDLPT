@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QLDSV
 {
-    public partial class frmInPhieuDiemThi : Form
+    public partial class frmBaoCaoPhieuDiemThi : Form
     {
-        public frmInPhieuDiemThi()
+        public frmBaoCaoPhieuDiemThi()
         {
             InitializeComponent();
         }

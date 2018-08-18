@@ -114,11 +114,11 @@ namespace QLDSV
 
         private void btnInPhieuDiemThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form frm = this.CheckExists(typeof(frmInPhieuDiemThi));
+            Form frm = this.CheckExists(typeof(frmBaoCaoPhieuDiemThi));
             if (frm != null) frm.Activate();
             else
             {
-                frmInPhieuDiemThi f = new frmInPhieuDiemThi();
+                frmBaoCaoPhieuDiemThi f = new frmBaoCaoPhieuDiemThi();
                 f.MdiParent = this;
                 f.Show();
             }
@@ -127,11 +127,23 @@ namespace QLDSV
 
         private void btnInPhieuDiemCaNhan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form frm = this.CheckExists(typeof(frmInPhieDiemCaNhan));
+            Form frm = this.CheckExists(typeof(frmBaoCaoPhieDiemCaNhan));
             if (frm != null) frm.Activate();
             else
             {
-                frmInPhieDiemCaNhan f = new frmInPhieDiemCaNhan();
+                frmBaoCaoPhieDiemCaNhan f = new frmBaoCaoPhieDiemCaNhan();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnTaoTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmTaoTaiKhoan));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmTaoTaiKhoan f = new frmTaoTaiKhoan();
                 f.MdiParent = this;
                 f.Show();
             }

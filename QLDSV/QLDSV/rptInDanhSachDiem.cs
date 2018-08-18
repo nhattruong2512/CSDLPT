@@ -16,14 +16,14 @@ namespace QLDSV {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReportDSSV : ReportClass {
+    public class rptInDanhSachDiem : ReportClass {
         
-        public ReportDSSV() {
+        public rptInDanhSachDiem() {
         }
         
         public override string ResourceName {
             get {
-                return "ReportDSSV.rpt";
+                return "rptInDanhSachDiem.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace QLDSV {
         
         public override string FullResourceName {
             get {
-                return "QLDSV.ReportDSSV.rpt";
+                return "QLDSV.rptInDanhSachDiem.rpt";
             }
             set {
                 // Do nothing
@@ -95,12 +95,28 @@ namespace QLDSV {
                 return this.DataDefinition.ParameterFields[0];
             }
         }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_MONHOC {
+            get {
+                return this.DataDefinition.ParameterFields[1];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_LANTHI {
+            get {
+                return this.DataDefinition.ParameterFields[2];
+            }
+        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReportDSSV : Component, ICachedReport {
+    public class CachedrptInDanhSachDiem : Component, ICachedReport {
         
-        public CachedReportDSSV() {
+        public CachedrptInDanhSachDiem() {
         }
         
         [Browsable(false)]
@@ -137,7 +153,7 @@ namespace QLDSV {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReportDSSV rpt = new ReportDSSV();
+            rptInDanhSachDiem rpt = new rptInDanhSachDiem();
             rpt.Site = this.Site;
             return rpt;
         }

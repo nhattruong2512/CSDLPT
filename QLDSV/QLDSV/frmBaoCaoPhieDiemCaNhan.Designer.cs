@@ -1,6 +1,6 @@
 ﻿namespace QLDSV
 {
-    partial class frmInPhieDiemCaNhan
+    partial class frmBaoCaoPhieDiemCaNhan
     {
         /// <summary>
         /// Required designer variable.
@@ -34,16 +34,11 @@
             this.btnIn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.gridControl1);
             this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Controls.Add(this.txtMaSV);
             this.panel1.Controls.Add(this.btnIn);
@@ -101,21 +96,6 @@
             this.crystalReportViewer1.Size = new System.Drawing.Size(791, 445);
             this.crystalReportViewer1.TabIndex = 1;
             // 
-            // gridControl1
-            // 
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(400, 200);
-            this.gridControl1.TabIndex = 5;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            // 
             // frmInPhieDiemCaNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,8 +108,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -142,7 +120,5 @@
         private System.Windows.Forms.Button btnIn;
         private System.Windows.Forms.Label label1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

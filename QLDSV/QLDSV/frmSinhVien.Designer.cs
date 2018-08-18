@@ -39,7 +39,7 @@
             System.Windows.Forms.Label pHAILabel;
             System.Windows.Forms.Label nGHIHOCLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSinhVien));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -388,7 +388,7 @@
             this.cmbLop.Name = "cmbLop";
             this.cmbLop.Size = new System.Drawing.Size(233, 21);
             this.cmbLop.TabIndex = 1;
-            this.cmbLop.ValueMember = "TENLOP";
+            this.cmbLop.ValueMember = "MALOP";
             this.cmbLop.SelectedIndexChanged += new System.EventHandler(this.cmbLop_SelectedIndexChanged);
             // 
             // bdsLop
@@ -418,9 +418,9 @@
             // 
             this.gcSinhVien.DataSource = this.bdsSinhVien;
             this.gcSinhVien.Dock = System.Windows.Forms.DockStyle.Top;
-            gridLevelNode2.RelationName = "FK_SINHVIEN_DIEM";
+            gridLevelNode1.RelationName = "FK_SINHVIEN_DIEM";
             this.gcSinhVien.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gcSinhVien.Location = new System.Drawing.Point(0, 118);
             this.gcSinhVien.MainView = this.gridView1;
             this.gcSinhVien.MenuManager = this.barManager1;
@@ -446,7 +446,6 @@
             this.colNGAYSINH,
             this.colNOISINH,
             this.colDIACHI,
-            this.colGHICHU,
             this.colNGHIHOC});
             this.gridView1.GridControl = this.gcSinhVien;
             this.gridView1.Name = "gridView1";

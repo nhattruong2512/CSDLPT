@@ -30,15 +30,14 @@ namespace QLDSV
 
         private void frmBaoCaoDSSV_Load(object sender, EventArgs e)
         {
-            string strLenh;
-            DataTable MyTable;
-            strLenh = "EXEC sp_InDsSinhVienTheoLop '" + maLop + "'";
+            DataTable tb;
+            String strLenh = "EXEC sp_InDanhSachSinhVien N'" + maLop + "'";
 
-            MyTable = Program.ExecSqlDataTable(strLenh);
+            tb = Program.ExecSqlDataTable(strLenh);
 
-            ReportDSSV rp = new ReportDSSV();
-            rp.SetDataSource(MyTable);
-            rp.SetParameterValue("TENLOP", tenLop);
+            rpt_sp_InDanhSachSinhVien rp = new rpt_sp_InDanhSachSinhVien();
+            rp.SetDataSource(tb);
+            rp.SetParameterValue("tenLop", tenLop);
             crystalReportViewer1.ReportSource = rp;
 
         }

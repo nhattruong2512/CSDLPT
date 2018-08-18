@@ -44,7 +44,6 @@ namespace QLDSV
 
         private void frmSinhVien_Load(object sender, EventArgs e)
         {
-            
             DS.EnforceConstraints = false;
            
             this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -130,10 +129,6 @@ namespace QLDSV
             }
         }
 
-        private void pHAILabel_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

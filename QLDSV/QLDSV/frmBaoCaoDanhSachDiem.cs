@@ -47,7 +47,7 @@ namespace QLDSV
 
             MyTable = Program.ExecSqlDataTable(strLenh);
 
-            rptDanhSachDiem rp = new rptDanhSachDiem();
+            rptInDanhSachDiem rp = new rptInDanhSachDiem();
             rp.SetDataSource(MyTable);
             rp.SetParameterValue("TENLOP", tenLop);
             rp.SetParameterValue("MONHOC", tenMonHoc);

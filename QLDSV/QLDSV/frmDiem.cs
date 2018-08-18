@@ -240,6 +240,17 @@ namespace QLDSV
         {
             this.Close();
         }
+
+        private void btnInDiemCaNhan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmBaoCaoPhieDiemCaNhan f = new frmBaoCaoPhieDiemCaNhan();
+            f.ShowDialog();
+        }
+
+        private void btnInPhieuDiemThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
        
     }
 }

@@ -16,14 +16,14 @@ namespace QLDSV {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptDanhSachDiem : ReportClass {
+    public class rpt_sp_InDanhSachSinhVien : ReportClass {
         
-        public rptDanhSachDiem() {
+        public rpt_sp_InDanhSachSinhVien() {
         }
         
         public override string ResourceName {
             get {
-                return "rptDanhSachDiem.rpt";
+                return "rpt_sp_InDanhSachSinhVien.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace QLDSV {
         
         public override string FullResourceName {
             get {
-                return "QLDSV.rptDanhSachDiem.rpt";
+                return "QLDSV.rpt_sp_InDanhSachSinhVien.rpt";
             }
             set {
                 // Do nothing
@@ -90,33 +90,17 @@ namespace QLDSV {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_TENLOP {
+        public CrystalDecisions.Shared.IParameterField Parameter_tenLop {
             get {
                 return this.DataDefinition.ParameterFields[0];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_MONHOC {
-            get {
-                return this.DataDefinition.ParameterFields[1];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_LANTHI {
-            get {
-                return this.DataDefinition.ParameterFields[2];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptDanhSachDiem : Component, ICachedReport {
+    public class Cachedrpt_sp_InDanhSachSinhVien : Component, ICachedReport {
         
-        public CachedrptDanhSachDiem() {
+        public Cachedrpt_sp_InDanhSachSinhVien() {
         }
         
         [Browsable(false)]
@@ -153,7 +137,7 @@ namespace QLDSV {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptDanhSachDiem rpt = new rptDanhSachDiem();
+            rpt_sp_InDanhSachSinhVien rpt = new rpt_sp_InDanhSachSinhVien();
             rpt.Site = this.Site;
             return rpt;
         }

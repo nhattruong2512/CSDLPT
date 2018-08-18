@@ -91,17 +91,17 @@
     <Compile Include="frmDiem.Designer.cs">
       <DependentUpon>frmDiem.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInPhieDiemCaNhan.cs">
+    <Compile Include="frmBaoCaoPhieDiemCaNhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInPhieDiemCaNhan.Designer.cs">
-      <DependentUpon>frmInPhieDiemCaNhan.cs</DependentUpon>
+    <Compile Include="frmBaoCaoPhieDiemCaNhan.Designer.cs">
+      <DependentUpon>frmBaoCaoPhieDiemCaNhan.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInPhieuDiemThi.cs">
+    <Compile Include="frmBaoCaoPhieuDiemThi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInPhieuDiemThi.Designer.cs">
-      <DependentUpon>frmInPhieuDiemThi.cs</DependentUpon>
+    <Compile Include="frmBaoCaoPhieuDiemThi.Designer.cs">
+      <DependentUpon>frmBaoCaoPhieuDiemThi.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLop.cs">
       <SubType>Form</SubType>
@@ -127,11 +127,11 @@
     <Compile Include="frmSinhVien.Designer.cs">
       <DependentUpon>frmSinhVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSinhVienn.cs">
+    <Compile Include="frmTaoTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSinhVienn.Designer.cs">
-      <DependentUpon>frmSinhVienn.cs</DependentUpon>
+    <Compile Include="frmTaoTaiKhoan.Designer.cs">
+      <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,21 +140,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="QLDSVDS.Designer.cs">
+    <Compile Include="rptInDanhSachDiem.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLDSVDS.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ReportDSSV.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReportDSSV.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptDanhSachDiem.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptDanhSachDiem.rpt</DependentUpon>
+      <DependentUpon>rptInDanhSachDiem.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptInPhieuDiemCaNhan.cs">
@@ -169,6 +158,12 @@
       <DependentUpon>rptInPhieuDiemThi.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rpt_sp_InDanhSachSinhVien.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_sp_InDanhSachSinhVien.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="frmBaoCaoDanhSachDiem.resx">
       <DependentUpon>frmBaoCaoDanhSachDiem.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,11 +176,11 @@
     <EmbeddedResource Include="frmDiem.resx">
       <DependentUpon>frmDiem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInPhieDiemCaNhan.resx">
-      <DependentUpon>frmInPhieDiemCaNhan.cs</DependentUpon>
+    <EmbeddedResource Include="frmBaoCaoPhieDiemCaNhan.resx">
+      <DependentUpon>frmBaoCaoPhieDiemCaNhan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInPhieuDiemThi.resx">
-      <DependentUpon>frmInPhieuDiemThi.cs</DependentUpon>
+    <EmbeddedResource Include="frmBaoCaoPhieuDiemThi.resx">
+      <DependentUpon>frmBaoCaoPhieuDiemThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLop.resx">
       <DependentUpon>frmLop.cs</DependentUpon>
@@ -199,8 +194,8 @@
     <EmbeddedResource Include="frmSinhVien.resx">
       <DependentUpon>frmSinhVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSinhVienn.resx">
-      <DependentUpon>frmSinhVienn.cs</DependentUpon>
+    <EmbeddedResource Include="frmTaoTaiKhoan.resx">
+      <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -213,13 +208,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ReportDSSV.rpt">
+    <EmbeddedResource Include="rptInDanhSachDiem.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReportDSSV.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptDanhSachDiem.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptDanhSachDiem.cs</LastGenOutput>
+      <LastGenOutput>rptInDanhSachDiem.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptInPhieuDiemCaNhan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -228,6 +219,10 @@
     <EmbeddedResource Include="rptInPhieuDiemThi.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptInPhieuDiemThi.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rpt_sp_InDanhSachSinhVien.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_sp_InDanhSachSinhVien.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -295,17 +290,6 @@
     <None Include="Images\Undo-icon-24.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="QLDSVDS.xsc">
-      <DependentUpon>QLDSVDS.xsd</DependentUpon>
-    </None>
-    <None Include="QLDSVDS.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLDSVDS.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QLDSVDS.xss">
-      <DependentUpon>QLDSVDS.xsd</DependentUpon>
-    </None>
     <None Include="Resources\back_24.png" />
   </ItemGroup>
   <ItemGroup>
