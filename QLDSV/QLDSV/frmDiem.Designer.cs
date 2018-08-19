@@ -93,7 +93,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(778, 180);
+            this.panel1.Size = new System.Drawing.Size(702, 180);
             this.panel1.TabIndex = 0;
             // 
             // btnLuu
@@ -161,7 +161,7 @@
             this.cmbLop.FormattingEnabled = true;
             this.cmbLop.Location = new System.Drawing.Point(474, 35);
             this.cmbLop.Name = "cmbLop";
-            this.cmbLop.Size = new System.Drawing.Size(240, 21);
+            this.cmbLop.Size = new System.Drawing.Size(209, 21);
             this.cmbLop.TabIndex = 3;
             this.cmbLop.ValueMember = "MALOP";
             this.cmbLop.SelectedIndexChanged += new System.EventHandler(this.cmbLop_SelectedIndexChanged);
@@ -246,11 +246,10 @@
             // gcNhapDiem
             // 
             this.gcNhapDiem.DataSource = this.bdsNhapDiem;
-            this.gcNhapDiem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcNhapDiem.Location = new System.Drawing.Point(0, 220);
+            this.gcNhapDiem.Location = new System.Drawing.Point(0, 217);
             this.gcNhapDiem.MainView = this.gridView1;
             this.gcNhapDiem.Name = "gcNhapDiem";
-            this.gcNhapDiem.Size = new System.Drawing.Size(778, 220);
+            this.gcNhapDiem.Size = new System.Drawing.Size(563, 220);
             this.gcNhapDiem.TabIndex = 2;
             this.gcNhapDiem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -270,6 +269,7 @@
             this.colMASV.Name = "colMASV";
             this.colMASV.Visible = true;
             this.colMASV.VisibleIndex = 0;
+            this.colMASV.Width = 181;
             // 
             // colHOTEN
             // 
@@ -277,6 +277,7 @@
             this.colHOTEN.Name = "colHOTEN";
             this.colHOTEN.Visible = true;
             this.colHOTEN.VisibleIndex = 1;
+            this.colHOTEN.Width = 255;
             // 
             // colDIEM
             // 
@@ -284,6 +285,7 @@
             this.colDIEM.Name = "colDIEM";
             this.colDIEM.Visible = true;
             this.colDIEM.VisibleIndex = 2;
+            this.colDIEM.Width = 109;
             // 
             // barManager1
             // 
@@ -331,8 +333,8 @@
             // 
             this.btnInDiemCaNhan.Caption = "In Điểm Cá Nhân";
             this.btnInDiemCaNhan.Id = 2;
-            this.btnInDiemCaNhan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnInDiemCaNhan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnInDiemCaNhan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInDiemCaNhan.ImageOptions.Image")));
+            this.btnInDiemCaNhan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnInDiemCaNhan.ImageOptions.LargeImage")));
             this.btnInDiemCaNhan.Name = "btnInDiemCaNhan";
             this.btnInDiemCaNhan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInDiemCaNhan_ItemClick);
             // 
@@ -340,7 +342,7 @@
             // 
             this.btnInPhieuDiemThi.Caption = "In Phiếu Điểm Thi";
             this.btnInPhieuDiemThi.Id = 3;
-            this.btnInPhieuDiemThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.btnInPhieuDiemThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInPhieuDiemThi.ImageOptions.Image")));
             this.btnInPhieuDiemThi.Name = "btnInPhieuDiemThi";
             this.btnInPhieuDiemThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInPhieuDiemThi_ItemClick);
             // 
@@ -370,7 +372,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(778, 40);
+            this.barDockControlTop.Size = new System.Drawing.Size(702, 40);
             // 
             // barDockControlBottom
             // 
@@ -378,7 +380,7 @@
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 552);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(778, 23);
+            this.barDockControlBottom.Size = new System.Drawing.Size(702, 23);
             // 
             // barDockControlLeft
             // 
@@ -392,7 +394,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(778, 40);
+            this.barDockControlRight.Location = new System.Drawing.Point(702, 40);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 512);
             // 
@@ -400,7 +402,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 575);
+            this.ClientSize = new System.Drawing.Size(702, 575);
             this.Controls.Add(this.gcNhapDiem);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);

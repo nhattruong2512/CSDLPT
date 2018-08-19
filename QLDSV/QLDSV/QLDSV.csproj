@@ -140,22 +140,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="rptInDanhSachDiem.cs">
+    <Compile Include="rpt_sp_InPhieuDiemCaNhan.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>rptInDanhSachDiem.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptInPhieuDiemCaNhan.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptInPhieuDiemCaNhan.rpt</DependentUpon>
+      <DependentUpon>rpt_sp_InPhieuDiemCaNhan.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptInPhieuDiemThi.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptInPhieuDiemThi.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rpt_sp_BangDiem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_sp_BangDiem.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="rpt_sp_InDanhSachSinhVien.cs">
@@ -208,17 +208,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="rptInDanhSachDiem.rpt">
+    <EmbeddedResource Include="rpt_sp_InPhieuDiemCaNhan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptInDanhSachDiem.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptInPhieuDiemCaNhan.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptInPhieuDiemCaNhan.cs</LastGenOutput>
+      <LastGenOutput>rpt_sp_InPhieuDiemCaNhan.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptInPhieuDiemThi.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptInPhieuDiemThi.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rpt_sp_BangDiem.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_sp_BangDiem.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rpt_sp_InDanhSachSinhVien.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

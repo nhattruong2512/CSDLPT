@@ -28,7 +28,7 @@ namespace QLDSV
             //MessageBox.Show(strLenh);
             dt = Program.ExecSqlDataTable(strLenh);
             dt2 = Program.ExecSqlDataTable(strLenh2);
-            rptInPhieuDiemCaNhan rp = new rptInPhieuDiemCaNhan();
+            rpt_sp_InPhieuDiemCaNhan rp = new rpt_sp_InPhieuDiemCaNhan();
 
             rp.Database.Tables[0].SetDataSource(dt);
             rp.Database.Tables[1].SetDataSource(dt2);

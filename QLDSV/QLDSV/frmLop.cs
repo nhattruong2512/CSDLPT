@@ -46,7 +46,6 @@ namespace QLDSV
             this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.SinhVienTableAdapter.Fill(this.DS.SINHVIEN);
 
-            //this.lOPTableAdapter.Fill(this.dS.LOP);
             maKhoa = ((DataRowView)bdsLop[0])["MAKH"].ToString();
             this.LopTableAdapter.Update(this.DS.LOP);
             cmbKhoa.DataSource = Program.bds_dspm;  // sao chép bds_dspm đã load ở form đăng nhập  qua
@@ -356,7 +355,9 @@ namespace QLDSV
             {
                 this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.LopTableAdapter.Fill(this.DS.LOP);
-                maKhoa = ((DataRowView)bdsLop[0])["MAKH"].ToString();
+                this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.SinhVienTableAdapter.Fill(this.DS.SINHVIEN);
+                maKhoa = ((DataRowView)bdsLop[cmbKhoa.SelectedIndex])["MAKH"].ToString();
             }
 
             if (choose == THEM)

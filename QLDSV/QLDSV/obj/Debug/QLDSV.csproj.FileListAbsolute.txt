@@ -43,6 +43,6 @@ D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.exe.licenses
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.exe
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.pdb
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmTaoTaiKhoan.resources
-D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.csprojResolveAssemblyReference.cache
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmBaoCaoPhieDiemCaNhan.resources
 D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.frmBaoCaoPhieuDiemThi.resources
+D:\DeTaiCSDLPT\QLDSV\CSDLPT\QLDSV\QLDSV\obj\Debug\QLDSV.csprojResolveAssemblyReference.cache

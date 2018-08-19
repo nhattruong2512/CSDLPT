@@ -47,11 +47,11 @@ namespace QLDSV
 
             MyTable = Program.ExecSqlDataTable(strLenh);
 
-            rptInDanhSachDiem rp = new rptInDanhSachDiem();
+            rpt_sp_BangDiem rp = new rpt_sp_BangDiem();
             rp.SetDataSource(MyTable);
-            rp.SetParameterValue("TENLOP", tenLop);
-            rp.SetParameterValue("MONHOC", tenMonHoc);
-            rp.SetParameterValue("LANTHI", lanThi);
+            rp.SetParameterValue("maLop", maLop);
+            rp.SetParameterValue("monHoc", tenMonHoc);
+            rp.SetParameterValue("lanThi", lanThi);
             crystalReportViewer1.ReportSource = rp;
         }
     }

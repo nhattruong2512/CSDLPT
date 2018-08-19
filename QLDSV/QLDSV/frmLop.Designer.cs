@@ -258,6 +258,7 @@
             // 
             // cmbKhoa
             // 
+            this.cmbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKhoa.FormattingEnabled = true;
             this.cmbKhoa.Location = new System.Drawing.Point(266, 22);
             this.cmbKhoa.Name = "cmbKhoa";
@@ -288,6 +289,7 @@
             this.LopAdapterManager.LOPTableAdapter = this.LopTableAdapter;
             this.LopAdapterManager.MONHOCTableAdapter = null;
             this.LopAdapterManager.SINHVIENTableAdapter = null;
+            this.LopAdapterManager.UpdateOrder = QLDSV.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // gcLop
             // 
