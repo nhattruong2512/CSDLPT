@@ -21,7 +21,7 @@ namespace QLDSV
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLDSVDataSet.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            this.v_DS_PHANMANHTableAdapter.Fill(this.qLDSVDataSet.V_DS_PHANMANH);
+            this.v_DS_PHANMANHTableAdapter.Fill(this.dS.V_DS_PHANMANH);
             cmbTenKhoa.SelectedIndex = 1;
             cmbTenKhoa.SelectedIndex = 0;
 
@@ -81,7 +81,7 @@ namespace QLDSV
         {
             try
             {
-                this.v_DS_PHANMANHTableAdapter.FillBy1(this.qLDSVDataSet.V_DS_PHANMANH);
+                this.v_DS_PHANMANHTableAdapter.Fill(this.dS.V_DS_PHANMANH);
             }
             catch (System.Exception ex)
             {

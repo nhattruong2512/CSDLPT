@@ -24,7 +24,7 @@ namespace QLDSV
             DataTable dt = new DataTable();
             DataTable dt2 = new DataTable();
             String strLenh = "EXEC sp_InPhieuDiemCaNhan N'" + maSV + "'";
-            String strLenh2 = "EXEC sp_KTMaSV N'" + maSV + "'";
+            String strLenh2 = "EXEC sp_TimSinhVienTheoMa N'" + maSV + "'";
             //MessageBox.Show(strLenh);
             dt = Program.ExecSqlDataTable(strLenh);
             dt2 = Program.ExecSqlDataTable(strLenh2);

@@ -39,15 +39,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTenKhoa = new System.Windows.Forms.ComboBox();
             this.bdsDSPM = new System.Windows.Forms.BindingSource(this.components);
-            this.qLDSVDataSet = new QLDSV.QLDSVDataSet();
-            this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVDataSetTableAdapters.V_DS_PHANMANHTableAdapter();
-            this.tableAdapterManager = new QLDSV.QLDSVDataSetTableAdapters.TableAdapterManager();
+            this.dS = new QLDSV.DS();
             this.fillBy1ToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillBy1ToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.v_DS_PHANMANHTableAdapter = new QLDSV.DSTableAdapters.V_DS_PHANMANHTableAdapter();
             tENKHOALabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDSPM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             this.fillBy1ToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -146,22 +145,12 @@
             // bdsDSPM
             // 
             this.bdsDSPM.DataMember = "V_DS_PHANMANH";
-            this.bdsDSPM.DataSource = this.qLDSVDataSet;
+            this.bdsDSPM.DataSource = this.dS;
             // 
-            // qLDSVDataSet
+            // dS
             // 
-            this.qLDSVDataSet.DataSetName = "QLDSVDataSet";
-            this.qLDSVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // v_DS_PHANMANHTableAdapter
-            // 
-            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = QLDSV.QLDSVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.dS.DataSetName = "DS";
+            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // fillBy1ToolStrip
             // 
@@ -181,6 +170,10 @@
             this.fillBy1ToolStripButton.Text = "FillBy1";
             this.fillBy1ToolStripButton.Click += new System.EventHandler(this.fillBy1ToolStripButton_Click);
             // 
+            // v_DS_PHANMANHTableAdapter
+            // 
+            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
+            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -197,7 +190,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDSPM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             this.fillBy1ToolStrip.ResumeLayout(false);
             this.fillBy1ToolStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -208,10 +201,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private QLDSVDataSet qLDSVDataSet;
-        private System.Windows.Forms.BindingSource bdsDSPM;
-        private QLDSVDataSetTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
-        private QLDSVDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ComboBox cmbTenKhoa;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnDangNhap;
@@ -221,5 +210,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStrip fillBy1ToolStrip;
         private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
+        private DS dS;
+        private System.Windows.Forms.BindingSource bdsDSPM;
+        private DSTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
     }
 }

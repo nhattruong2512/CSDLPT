@@ -50,7 +50,6 @@
             this.MonHocTableAdapter = new QLDSV.DSTableAdapters.MONHOCTableAdapter();
             this.LopTableAdapter = new QLDSV.DSTableAdapters.LOPTableAdapter();
             this.bdsNhapDiem = new System.Windows.Forms.BindingSource(this.components);
-            this.NhapDiemTableAdapter = new QLDSV.DSTableAdapters.sp_BangDiemTableAdapter();
             this.gcNhapDiem = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -241,7 +240,6 @@
             // 
             // NhapDiemTableAdapter
             // 
-            this.NhapDiemTableAdapter.ClearBeforeFill = true;
             // 
             // gcNhapDiem
             // 
@@ -450,7 +448,6 @@
         private System.Windows.Forms.ComboBox cmbLanThi;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.BindingSource bdsNhapDiem;
-        private DSTableAdapters.sp_BangDiemTableAdapter NhapDiemTableAdapter;
         private DevExpress.XtraGrid.GridControl gcNhapDiem;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMASV;

@@ -34,11 +34,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbKhoa = new System.Windows.Forms.ComboBox();
             this.v_DS_PHANMANHBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.qLDSVDataSet = new QLDSV.QLDSVDataSet();
             this.label2 = new System.Windows.Forms.Label();
             this.v_DS_PHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSVDataSetTableAdapters.V_DS_PHANMANHTableAdapter();
-            this.tableAdapterManager = new QLDSV.QLDSVDataSetTableAdapters.TableAdapterManager();
             this.v_DS_PHANMANHBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -69,7 +66,6 @@
             this.GiangVienTableAdapter = new QLDSV.DSTableAdapters.GIANGVIENTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingNavigator)).BeginInit();
             this.v_DS_PHANMANHBindingNavigator.SuspendLayout();
@@ -113,12 +109,9 @@
             // v_DS_PHANMANHBindingSource1
             // 
             this.v_DS_PHANMANHBindingSource1.DataMember = "V_DS_PHANMANH";
-            this.v_DS_PHANMANHBindingSource1.DataSource = this.qLDSVDataSet;
             // 
             // qLDSVDataSet
             // 
-            this.qLDSVDataSet.DataSetName = "QLDSVDataSet";
-            this.qLDSVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label2
             // 
@@ -132,17 +125,11 @@
             // v_DS_PHANMANHBindingSource
             // 
             this.v_DS_PHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
-            this.v_DS_PHANMANHBindingSource.DataSource = this.qLDSVDataSet;
             // 
             // v_DS_PHANMANHTableAdapter
             // 
-            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
-            // 
             // tableAdapterManager
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = QLDSV.QLDSVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // v_DS_PHANMANHBindingNavigator
             // 
@@ -418,7 +405,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSVDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingNavigator)).EndInit();
             this.v_DS_PHANMANHBindingNavigator.ResumeLayout(false);
@@ -436,10 +422,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private QLDSVDataSet qLDSVDataSet;
         private System.Windows.Forms.BindingSource v_DS_PHANMANHBindingSource;
-        private QLDSVDataSetTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
-        private QLDSVDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator v_DS_PHANMANHBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;

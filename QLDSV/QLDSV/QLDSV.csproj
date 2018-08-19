@@ -62,7 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DS.Designer.cs">
+    <Compile Include="DS1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
@@ -135,11 +135,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLDSVDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="rpt_sp_InPhieuDiemCaNhan.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -231,8 +226,8 @@
       <DependentUpon>DS.xsd</DependentUpon>
     </None>
     <None Include="DS.xsd">
-      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>DS1.Designer.cs</LastGenOutput>
     </None>
     <None Include="DS.xss">
@@ -247,17 +242,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QLDSVDataSet.xsc">
-      <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QLDSVDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLDSVDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QLDSVDataSet.xss">
-      <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Login-48-icon.png" />

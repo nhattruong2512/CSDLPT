@@ -502,7 +502,7 @@ namespace QLDSV
         {
             try
             {
-                this.SinhVienTableAdapter.FillBy(this.DS.SINHVIEN);
+                //this.SinhVienTableAdapter.FillBy(this.DS.SINHVIEN);
             }
             catch (System.Exception ex)
             {

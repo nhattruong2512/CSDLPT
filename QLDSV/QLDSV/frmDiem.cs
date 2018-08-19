@@ -125,13 +125,13 @@ namespace QLDSV
 
             try
             {
-                this.NhapDiemTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.NhapDiemTableAdapter.Fill(
-                    this.dS.sp_BangDiem,
-                    cmbLop.SelectedValue.ToString(),
-                    cmbMonHoc.SelectedValue.ToString(),
-                    short.Parse(cmbLanThi.SelectedValue.ToString())
-               );
+               // this.NhapDiemTableAdapter.Connection.ConnectionString = Program.connstr;
+               // this.NhapDiemTableAdapter.Fill(
+               //     this.dS.sp_BangDiem,
+               //     cmbLop.SelectedValue.ToString(),
+               //     cmbMonHoc.SelectedValue.ToString(),
+               //     short.Parse(cmbLanThi.SelectedValue.ToString())
+               //);
             }
             catch (System.Exception ex)
             {
@@ -139,19 +139,19 @@ namespace QLDSV
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
-            this.NhapDiemTableAdapter.Connection.ConnectionString = Program.connstr;
+            //this.NhapDiemTableAdapter.Connection.ConnectionString = Program.connstr;
 
-            DataTable data = this.NhapDiemTableAdapter.GetData(
-                                                  cmbLop.SelectedValue.ToString(),
-                                                  cmbMonHoc.SelectedValue.ToString(),
-                                                  short.Parse(cmbLanThi.SelectedValue.ToString())
-                             );
+            //DataTable data = this.NhapDiemTableAdapter.GetData(
+            //                                      cmbLop.SelectedValue.ToString(),
+            //                                      cmbMonHoc.SelectedValue.ToString(),
+            //                                      short.Parse(cmbLanThi.SelectedValue.ToString())
+            //                 );
 
-            if (data.Rows.Count == 0)
-            {
-                MessageBox.Show("Không có dữ liệu!");
-                updateView(!hienBangDiem);
-            }
+            //if (data.Rows.Count == 0)
+            //{
+            //    MessageBox.Show("Không có dữ liệu!");
+            //    updateView(!hienBangDiem);
+            //}
         }
 
         private void btnBatDau_Click(object sender, EventArgs e)
@@ -249,7 +249,8 @@ namespace QLDSV
 
         private void btnInPhieuDiemThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            frmBaoCaoPhieuDiemThi f = new frmBaoCaoPhieuDiemThi();
+            f.ShowDialog();
         }
        
     }
