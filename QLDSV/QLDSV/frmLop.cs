@@ -313,6 +313,7 @@ namespace QLDSV
 
                     maLop = ((DataRowView)bdsLop[bdsLop.Position])["MALOP"].ToString(); // giữ lại để khi xóa bij lỗi thì ta sẽ quay về lại
                     bdsLop.RemoveCurrent();
+                    bdsLop.ResetCurrentItem();
                     this.LopTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.LopTableAdapter.Update(this.DS.LOP);
 

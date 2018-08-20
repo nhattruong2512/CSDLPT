@@ -603,6 +603,7 @@
             // txtMaLop
             // 
             this.txtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "MALOP", true));
+            this.txtMaLop.Enabled = false;
             this.txtMaLop.Location = new System.Drawing.Point(112, 122);
             this.txtMaLop.MenuManager = this.barManager1;
             this.txtMaLop.Name = "txtMaLop";

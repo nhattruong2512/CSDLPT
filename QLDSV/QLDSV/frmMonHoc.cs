@@ -319,6 +319,7 @@ namespace QLDSV
 
                     maMH = ((DataRowView)bdsMonHoc[bdsMonHoc.Position])["MAMH"].ToString(); // giữ lại để khi xóa bij lỗi thì ta sẽ quay về lại
                     bdsMonHoc.RemoveCurrent();
+                    bdsMonHoc.ResetCurrentItem();
                     this.MonHocTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.MonHocTableAdapter.Update(this.dS.MONHOC);
 

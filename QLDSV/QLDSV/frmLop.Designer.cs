@@ -352,6 +352,7 @@
             // txtMaKhoa
             // 
             this.txtMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsLop, "MAKH", true));
+            this.txtMaKhoa.Enabled = false;
             this.txtMaKhoa.Location = new System.Drawing.Point(153, 88);
             this.txtMaKhoa.MenuManager = this.barManagerButton;
             this.txtMaKhoa.Name = "txtMaKhoa";

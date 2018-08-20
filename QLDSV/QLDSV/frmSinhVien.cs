@@ -209,6 +209,7 @@ namespace QLDSV
 
                     maSV = ((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString(); // giữ lại để khi xóa bij lỗi thì ta sẽ quay về lại
                     bdsSinhVien.RemoveCurrent();
+                    bdsSinhVien.ResetCurrentItem();
                     this.SinhVienTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.SinhVienTableAdapter.Update(this.DS.SINHVIEN);
                     capNhatBtnPhucHoi();
@@ -378,6 +379,7 @@ namespace QLDSV
                 else
                 {
                     bdsSinhVien.RemoveCurrent();
+                    bdsSinhVien.ResetCurrentItem();
                 }
                 capNhatBtnPhucHoi();
                 isDangThaoTac = false;
