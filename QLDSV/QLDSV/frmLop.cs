@@ -323,7 +323,7 @@ namespace QLDSV
                     MessageBox.Show("Lỗi xóa lớp. Bạn hãy xóa lại\n" + ex.Message, "",
                         MessageBoxButtons.OK);
                     this.LopTableAdapter.Fill(this.DS.LOP);
-                    bdsLop.Position = bdsLop.Find("MALOP", maLop);
+                    bdsLop.Position = bdsLop.Find("MALOP", maLop); //tro lại vi tri xoa bi loi
                     return;
                 }
             }

@@ -49,12 +49,8 @@
             this.bdsMonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.MonHocTableAdapter = new QLDSV.DSTableAdapters.MONHOCTableAdapter();
             this.LopTableAdapter = new QLDSV.DSTableAdapters.LOPTableAdapter();
-            this.bdsNhapDiem = new System.Windows.Forms.BindingSource(this.components);
             this.gcNhapDiem = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDIEM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnInDanhSachDiem = new DevExpress.XtraBars.BarButtonItem();
@@ -66,15 +62,20 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.bdsNhapDiem = new System.Windows.Forms.BindingSource(this.components);
+            this.NhapDiemTableAdapter = new QLDSV.DSTableAdapters.sp_BangDiemTableAdapter();
+            this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHOTEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDiem = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSinhVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsNhapDiem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNhapDiem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsNhapDiem)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -233,21 +234,14 @@
             // 
             this.LopTableAdapter.ClearBeforeFill = true;
             // 
-            // bdsNhapDiem
-            // 
-            this.bdsNhapDiem.DataMember = "sp_BangDiem";
-            this.bdsNhapDiem.DataSource = this.dS;
-            // 
-            // NhapDiemTableAdapter
-            // 
-            // 
             // gcNhapDiem
             // 
             this.gcNhapDiem.DataSource = this.bdsNhapDiem;
-            this.gcNhapDiem.Location = new System.Drawing.Point(0, 217);
+            this.gcNhapDiem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcNhapDiem.Location = new System.Drawing.Point(0, 220);
             this.gcNhapDiem.MainView = this.gridView1;
             this.gcNhapDiem.Name = "gcNhapDiem";
-            this.gcNhapDiem.Size = new System.Drawing.Size(563, 220);
+            this.gcNhapDiem.Size = new System.Drawing.Size(702, 155);
             this.gcNhapDiem.TabIndex = 2;
             this.gcNhapDiem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -257,33 +251,9 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMASV,
             this.colHOTEN,
-            this.colDIEM});
+            this.colDiem});
             this.gridView1.GridControl = this.gcNhapDiem;
             this.gridView1.Name = "gridView1";
-            // 
-            // colMASV
-            // 
-            this.colMASV.FieldName = "MASV";
-            this.colMASV.Name = "colMASV";
-            this.colMASV.Visible = true;
-            this.colMASV.VisibleIndex = 0;
-            this.colMASV.Width = 181;
-            // 
-            // colHOTEN
-            // 
-            this.colHOTEN.FieldName = "HOTEN";
-            this.colHOTEN.Name = "colHOTEN";
-            this.colHOTEN.Visible = true;
-            this.colHOTEN.VisibleIndex = 1;
-            this.colHOTEN.Width = 255;
-            // 
-            // colDIEM
-            // 
-            this.colDIEM.FieldName = "DIEM";
-            this.colDIEM.Name = "colDIEM";
-            this.colDIEM.Visible = true;
-            this.colDIEM.VisibleIndex = 2;
-            this.colDIEM.Width = 109;
             // 
             // barManager1
             // 
@@ -396,6 +366,36 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 512);
             // 
+            // bdsNhapDiem
+            // 
+            this.bdsNhapDiem.DataMember = "sp_BangDiem";
+            this.bdsNhapDiem.DataSource = this.dS;
+            // 
+            // NhapDiemTableAdapter
+            // 
+            this.NhapDiemTableAdapter.ClearBeforeFill = true;
+            // 
+            // colMASV
+            // 
+            this.colMASV.FieldName = "MASV";
+            this.colMASV.Name = "colMASV";
+            this.colMASV.Visible = true;
+            this.colMASV.VisibleIndex = 0;
+            // 
+            // colHOTEN
+            // 
+            this.colHOTEN.FieldName = "HOTEN";
+            this.colHOTEN.Name = "colHOTEN";
+            this.colHOTEN.Visible = true;
+            this.colHOTEN.VisibleIndex = 1;
+            // 
+            // colDiem
+            // 
+            this.colDiem.FieldName = "Diem";
+            this.colDiem.Name = "colDiem";
+            this.colDiem.Visible = true;
+            this.colDiem.VisibleIndex = 2;
+            // 
             // frmDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,10 +417,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSinhVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsNhapDiem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNhapDiem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsNhapDiem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -447,12 +447,8 @@
         private DSTableAdapters.LOPTableAdapter LopTableAdapter;
         private System.Windows.Forms.ComboBox cmbLanThi;
         private System.Windows.Forms.Button btnLuu;
-        private System.Windows.Forms.BindingSource bdsNhapDiem;
         private DevExpress.XtraGrid.GridControl gcNhapDiem;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colMASV;
-        private DevExpress.XtraGrid.Columns.GridColumn colHOTEN;
-        private DevExpress.XtraGrid.Columns.GridColumn colDIEM;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.BarButtonItem btnInDanhSachDiem;
@@ -464,5 +460,10 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem btnInDiemCaNhan;
         private DevExpress.XtraBars.BarButtonItem btnInPhieuDiemThi;
+        private System.Windows.Forms.BindingSource bdsNhapDiem;
+        private DSTableAdapters.sp_BangDiemTableAdapter NhapDiemTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colMASV;
+        private DevExpress.XtraGrid.Columns.GridColumn colHOTEN;
+        private DevExpress.XtraGrid.Columns.GridColumn colDiem;
     }
 }

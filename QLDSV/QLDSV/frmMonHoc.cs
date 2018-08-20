@@ -198,7 +198,7 @@ namespace QLDSV
                         Program.sqlcmd = Program.conn.CreateCommand();
                         Program.sqlcmd.CommandType = CommandType.StoredProcedure;
                         Program.sqlcmd.CommandText = strLenh;
-                        Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.Text).Value = txtMaMH.Text;
+                        Program.sqlcmd.Parameters.Add("@X", SqlDbType.Text).Value = txtMaMH.Text;
                         Program.sqlcmd.Parameters.Add("@Ret", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
                         Program.sqlcmd.ExecuteNonQuery();
                         String Ret = Program.sqlcmd.Parameters["@Ret"].Value.ToString();
@@ -224,7 +224,7 @@ namespace QLDSV
 
                         try
                         {
-                            bdsMonHoc.EndEdit();
+                            bdsMonHoc.EndEdit(); //Kết thúc quá trình hiệu chỉnh và gởi các dữ liệu đã thay đổi về dữ liệu nguồn(Data Set)
                             bdsMonHoc.ResetCurrentItem();
                             this.MonHocTableAdapter.Connection.ConnectionString = Program.connstr;
                             this.MonHocTableAdapter.Update(this.dS.MONHOC);

@@ -74,8 +74,8 @@
             this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNOISINH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colGHICHU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colGHICHU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkNghiHoc = new DevExpress.XtraEditors.CheckEdit();
             this.chkPhai = new DevExpress.XtraEditors.CheckEdit();
@@ -506,6 +506,13 @@
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 7;
             // 
+            // colNGHIHOC
+            // 
+            this.colNGHIHOC.FieldName = "NGHIHOC";
+            this.colNGHIHOC.Name = "colNGHIHOC";
+            this.colNGHIHOC.Visible = true;
+            this.colNGHIHOC.VisibleIndex = 8;
+            // 
             // colGHICHU
             // 
             this.colGHICHU.FieldName = "GHICHU";
@@ -513,15 +520,9 @@
             this.colGHICHU.Visible = true;
             this.colGHICHU.VisibleIndex = 8;
             // 
-            // colNGHIHOC
-            // 
-            this.colNGHIHOC.FieldName = "NGHIHOC";
-            this.colNGHIHOC.Name = "colNGHIHOC";
-            this.colNGHIHOC.Visible = true;
-            this.colNGHIHOC.VisibleIndex = 9;
-            // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(nGHIHOCLabel);
             this.groupBox1.Controls.Add(this.chkNghiHoc);
             this.groupBox1.Controls.Add(pHAILabel);
@@ -654,6 +655,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(759, 536);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gcSinhVien);
