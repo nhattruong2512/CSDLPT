@@ -12,6 +12,8 @@ namespace QLDSV
 {
     public partial class frmTaoTaiKhoan : Form
     {
+        private bool isFirst = true;
+
         public frmTaoTaiKhoan()
         {
             InitializeComponent();
@@ -19,8 +21,9 @@ namespace QLDSV
 
         private void frmTaoTaiKhoan_Load(object sender, EventArgs e)
         {
+
             DS.EnforceConstraints = false;
-            this.GiangVienTableAdapter.Fill(this.DS.GIANGVIEN);
+            //this.GiangVienTableAdapter.Fill(this.DS.GIANGVIEN);
 
             cmbKhoa.DataSource = Program.bds_dspm;  // sao chép bds_dspm đã load ở form đăng nhập  qua
             cmbKhoa.DisplayMember = "TENKHOA";
@@ -56,7 +59,7 @@ namespace QLDSV
                 }
                 cmbKhoa.Enabled = false;
             }
-
+            isFirst = false;
         }
 
         private void initComboBoxGiangVien()
@@ -65,15 +68,17 @@ namespace QLDSV
             try
             {
 
-                String sql = "exec sp_LayDsGiaoVienTheoTenKhoa N'" + cmbKhoa.Text.ToString() + "'";
+                String sql = "exec sp_LayDsGiaoVienTheoTenKhoa N'" + cmbKhoa.GetItemText(cmbKhoa.SelectedItem).ToString() + "'";
                 DataTable tb = Program.ExecSqlDataTable(sql);
                 if (tb.Columns.Count > 0)
                 {
+                    bdsGiangVien.DataSource = tb;
                     cmbGiangVien.DataSource = tb;
                     cmbGiangVien.DisplayMember = "MAGV";
                     cmbGiangVien.ValueMember = "TEN";
 
-                    cmbGiangVien.SelectedIndex = 0;
+                    cmbGiangVien.SelectedItem = 1;
+                    cmbGiangVien.SelectedItem = 0;
 
                 }
 
@@ -92,12 +97,16 @@ namespace QLDSV
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            initComboBoxGiangVien();
+            if (!isFirst)
+            {
+                initComboBoxGiangVien();
+                //this.GiangVienTableAdapter.Connection.ConnectionString = Program.connstr;
+                //this.GiangVienTableAdapter.Fill(this.DS.GIANGVIEN);
+                //cmbGiangVien.SelectedItem = 1;
+                //cmbGiangVien.SelectedItem = 0;
+            }
 
-            this.GiangVienTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.GiangVienTableAdapter.Fill(this.DS.GIANGVIEN);
-            cmbGiangVien.SelectedItem = 1;
-            cmbGiangVien.SelectedItem = 0;
+            
         }
 
 
@@ -175,6 +184,13 @@ namespace QLDSV
                 txtPassword.Text = "";
                 return;
             }
+        }
+
+        private void cmbGiangVien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+         
+            txtHo.Text = ((DataRowView)bdsGiangVien[cmbGiangVien.SelectedIndex])["HO"].ToString();
+            txtTen.Text = ((DataRowView)bdsGiangVien[cmbGiangVien.SelectedIndex])["TEN"].ToString();
         }
 
     }

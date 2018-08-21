@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTaoTaiKhoan));
+            System.Windows.Forms.Label lbTen;
+            System.Windows.Forms.Label lbHo;
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbKhoa = new System.Windows.Forms.ComboBox();
-            this.v_DS_PHANMANHBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.v_DS_PHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.v_DS_PHANMANHBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -64,14 +64,23 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tableAdapterManager1 = new QLDSV.DSTableAdapters.TableAdapterManager();
             this.GiangVienTableAdapter = new QLDSV.DSTableAdapters.GIANGVIENTableAdapter();
+            this.txtTen = new DevExpress.XtraEditors.TextEdit();
+            this.txtHo = new DevExpress.XtraEditors.TextEdit();
+            this.vDSPHANMANHBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsPhanManh = new System.Windows.Forms.BindingSource(this.components);
+            this.v_DS_PHANMANHTableAdapter = new QLDSV.DSTableAdapters.V_DS_PHANMANHTableAdapter();
+            lbTen = new System.Windows.Forms.Label();
+            lbHo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingNavigator)).BeginInit();
             this.v_DS_PHANMANHBindingNavigator.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGiangVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsPhanManh)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -95,23 +104,13 @@
             // 
             // cmbKhoa
             // 
-            this.cmbKhoa.DataSource = this.v_DS_PHANMANHBindingSource1;
-            this.cmbKhoa.DisplayMember = "TENSERVER";
             this.cmbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKhoa.FormattingEnabled = true;
             this.cmbKhoa.Location = new System.Drawing.Point(107, 27);
             this.cmbKhoa.Name = "cmbKhoa";
             this.cmbKhoa.Size = new System.Drawing.Size(186, 21);
             this.cmbKhoa.TabIndex = 1;
-            this.cmbKhoa.ValueMember = "TENKHOA";
             this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
-            // 
-            // v_DS_PHANMANHBindingSource1
-            // 
-            this.v_DS_PHANMANHBindingSource1.DataMember = "V_DS_PHANMANH";
-            // 
-            // qLDSVDataSet
-            // 
             // 
             // label2
             // 
@@ -122,19 +121,9 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Khoa";
             // 
-            // v_DS_PHANMANHBindingSource
-            // 
-            this.v_DS_PHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
-            // 
-            // v_DS_PHANMANHTableAdapter
-            // 
-            // tableAdapterManager
-            // 
-            // 
             // v_DS_PHANMANHBindingNavigator
             // 
             this.v_DS_PHANMANHBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.v_DS_PHANMANHBindingNavigator.BindingSource = this.v_DS_PHANMANHBindingSource;
             this.v_DS_PHANMANHBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.v_DS_PHANMANHBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
             this.v_DS_PHANMANHBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -257,6 +246,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(lbTen);
+            this.groupBox2.Controls.Add(this.txtTen);
+            this.groupBox2.Controls.Add(lbHo);
+            this.groupBox2.Controls.Add(this.txtHo);
             this.groupBox2.Controls.Add(this.cmbGiangVien);
             this.groupBox2.Controls.Add(this.btnExit);
             this.groupBox2.Controls.Add(this.btnSignUp);
@@ -275,15 +268,13 @@
             // 
             // cmbGiangVien
             // 
-            this.cmbGiangVien.DataSource = this.bdsGiangVien;
-            this.cmbGiangVien.DisplayMember = "HO";
             this.cmbGiangVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGiangVien.FormattingEnabled = true;
-            this.cmbGiangVien.Location = new System.Drawing.Point(107, 37);
+            this.cmbGiangVien.Location = new System.Drawing.Point(107, 16);
             this.cmbGiangVien.Name = "cmbGiangVien";
             this.cmbGiangVien.Size = new System.Drawing.Size(186, 21);
             this.cmbGiangVien.TabIndex = 13;
-            this.cmbGiangVien.ValueMember = "MAGV";
+            this.cmbGiangVien.SelectedIndexChanged += new System.EventHandler(this.cmbGiangVien_SelectedIndexChanged);
             // 
             // bdsGiangVien
             // 
@@ -297,7 +288,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(218, 202);
+            this.btnExit.Location = new System.Drawing.Point(218, 213);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 9;
@@ -307,7 +298,7 @@
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(107, 202);
+            this.btnSignUp.Location = new System.Drawing.Point(107, 213);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(75, 23);
             this.btnSignUp.TabIndex = 8;
@@ -319,7 +310,7 @@
             // 
             this.cmbQuyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbQuyen.FormattingEnabled = true;
-            this.cmbQuyen.Location = new System.Drawing.Point(107, 165);
+            this.cmbQuyen.Location = new System.Drawing.Point(107, 168);
             this.cmbQuyen.Name = "cmbQuyen";
             this.cmbQuyen.Size = new System.Drawing.Size(83, 21);
             this.cmbQuyen.TabIndex = 7;
@@ -327,7 +318,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 173);
+            this.label6.Location = new System.Drawing.Point(26, 176);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 13);
             this.label6.TabIndex = 6;
@@ -335,14 +326,14 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(107, 130);
+            this.txtPassword.Location = new System.Drawing.Point(107, 133);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(186, 20);
             this.txtPassword.TabIndex = 5;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(107, 85);
+            this.txtUsername.Location = new System.Drawing.Point(107, 103);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(186, 20);
             this.txtUsername.TabIndex = 4;
@@ -350,7 +341,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 133);
+            this.label5.Location = new System.Drawing.Point(16, 136);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 2;
@@ -359,7 +350,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 92);
+            this.label4.Location = new System.Drawing.Point(16, 110);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 1;
@@ -368,7 +359,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 45);
+            this.label3.Location = new System.Drawing.Point(16, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 0;
@@ -390,6 +381,54 @@
             // 
             this.GiangVienTableAdapter.ClearBeforeFill = true;
             // 
+            // txtTen
+            // 
+            this.txtTen.Enabled = false;
+            this.txtTen.Location = new System.Drawing.Point(107, 74);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(186, 20);
+            this.txtTen.TabIndex = 15;
+            // 
+            // lbTen
+            // 
+            lbTen.AutoSize = true;
+            lbTen.Location = new System.Drawing.Point(16, 77);
+            lbTen.Name = "lbTen";
+            lbTen.Size = new System.Drawing.Size(26, 13);
+            lbTen.TabIndex = 14;
+            lbTen.Text = "Ten";
+            // 
+            // lbHo
+            // 
+            lbHo.AutoSize = true;
+            lbHo.Location = new System.Drawing.Point(16, 51);
+            lbHo.Name = "lbHo";
+            lbHo.Size = new System.Drawing.Size(21, 13);
+            lbHo.TabIndex = 13;
+            lbHo.Text = "Ho";
+            // 
+            // txtHo
+            // 
+            this.txtHo.Enabled = false;
+            this.txtHo.Location = new System.Drawing.Point(107, 48);
+            this.txtHo.Name = "txtHo";
+            this.txtHo.Size = new System.Drawing.Size(186, 20);
+            this.txtHo.TabIndex = 14;
+            // 
+            // vDSPHANMANHBindingSource1
+            // 
+            this.vDSPHANMANHBindingSource1.DataMember = "V_DS_PHANMANH";
+            this.vDSPHANMANHBindingSource1.DataSource = this.DS;
+            // 
+            // bdsPhanManh
+            // 
+            this.bdsPhanManh.DataMember = "V_DS_PHANMANH";
+            this.bdsPhanManh.DataSource = this.DS;
+            // 
+            // v_DS_PHANMANHTableAdapter
+            // 
+            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
+            // 
             // frmTaoTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -404,8 +443,6 @@
             this.Load += new System.EventHandler(this.frmTaoTaiKhoan_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingNavigator)).EndInit();
             this.v_DS_PHANMANHBindingNavigator.ResumeLayout(false);
             this.v_DS_PHANMANHBindingNavigator.PerformLayout();
@@ -413,6 +450,10 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGiangVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsPhanManh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,7 +463,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.BindingSource v_DS_PHANMANHBindingSource;
         private System.Windows.Forms.BindingNavigator v_DS_PHANMANHBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -450,9 +490,13 @@
         private System.Windows.Forms.ComboBox cmbQuyen;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbKhoa;
-        private System.Windows.Forms.BindingSource v_DS_PHANMANHBindingSource1;
         private System.Windows.Forms.BindingSource bdsGiangVien;
         private DSTableAdapters.GIANGVIENTableAdapter GiangVienTableAdapter;
         private System.Windows.Forms.ComboBox cmbGiangVien;
+        private DevExpress.XtraEditors.TextEdit txtTen;
+        private DevExpress.XtraEditors.TextEdit txtHo;
+        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource1;
+        private System.Windows.Forms.BindingSource bdsPhanManh;
+        private DSTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
     }
 }

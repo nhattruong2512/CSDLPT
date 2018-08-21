@@ -98,13 +98,7 @@ namespace QLDSV
 
                         String sqlHieuChinh = "exec sp_CapNhatMonHoc N'" + monHocHieuChinh.getMaMH() + "',N'" + monHocHieuChinh.getTenMH() + "'";
                         Program.ExecSqlDataTable(sqlHieuChinh);
-                        //String strPhucHoiHieuChinh = "sp_CapNhatMonHoc";
-                        //Program.sqlcmd = Program.conn.CreateCommand();
-                        //Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                        //Program.sqlcmd.CommandText = strPhucHoiHieuChinh;
-                        //Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.Text).Value = monHocHieuChinh.getMaMH();
-                        //Program.sqlcmd.Parameters.Add("@TENMH", SqlDbType.Text).Value = monHocHieuChinh.getTenMH();
-                        //Program.sqlcmd.ExecuteNonQuery();
+                       
                         Program.conn.Close();
                         capNhatBtnPhucHoi();
                         reload();
@@ -118,13 +112,6 @@ namespace QLDSV
                     string sql = "exec sp_ThemMonHoc N'" + monHocXoa.getMaMH() + "', N'" + monHocXoa.getTenMH() + "'";
                     Program.ExecSqlDataTable(sql);
 
-                    //String strPhucHoiXoa = "sp_ThemMonHoc";
-                    //Program.sqlcmd = Program.conn.CreateCommand();
-                    //Program.sqlcmd.CommandType = CommandType.StoredProcedure;
-                    //Program.sqlcmd.CommandText = strPhucHoiXoa;
-                    //Program.sqlcmd.Parameters.Add("@MAMH", SqlDbType.Text).Value = monHocXoa.getMaMH();
-                    //Program.sqlcmd.Parameters.Add("@TENMH", SqlDbType.Text).Value = monHocXoa.getTenMH();
-                    //Program.sqlcmd.ExecuteNonQuery();
                     reload();
                     break;
             }
