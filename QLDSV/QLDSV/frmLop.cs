@@ -57,6 +57,7 @@ namespace QLDSV
                 cmbKhoa.Enabled = true;  // bật tắt theo phân quyền
             else
                 cmbKhoa.Enabled = false;
+            groupBox1.Enabled = false;
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

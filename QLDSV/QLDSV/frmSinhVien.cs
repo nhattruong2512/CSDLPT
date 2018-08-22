@@ -67,6 +67,7 @@ namespace QLDSV
             cmbLop.SelectedItem = 1;
             cmbLop.SelectedItem = 0;
 
+            groupBox1.Enabled = false;
             updateCombobox();
 
         }

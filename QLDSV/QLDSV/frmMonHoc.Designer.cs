@@ -52,7 +52,7 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox = new System.Windows.Forms.GroupBox();
             this.txtTenMH = new DevExpress.XtraEditors.TextEdit();
             this.txtMaMH = new DevExpress.XtraEditors.TextEdit();
             mAMHLabel = new System.Windows.Forms.Label();
@@ -62,7 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenMH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaMH.Properties)).BeginInit();
             this.SuspendLayout();
@@ -237,6 +237,7 @@
             this.tableAdapterManager.LOPTableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = this.MonHocTableAdapter;
             this.tableAdapterManager.SINHVIENTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = QLDSV.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // gcMonHoc
             // 
@@ -273,18 +274,18 @@
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 1;
             // 
-            // groupBox1
+            // groupBox
             // 
-            this.groupBox1.Controls.Add(tENMHLabel);
-            this.groupBox1.Controls.Add(this.txtTenMH);
-            this.groupBox1.Controls.Add(mAMHLabel);
-            this.groupBox1.Controls.Add(this.txtMaMH);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 261);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(769, 238);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
+            this.groupBox.Controls.Add(tENMHLabel);
+            this.groupBox.Controls.Add(this.txtTenMH);
+            this.groupBox.Controls.Add(mAMHLabel);
+            this.groupBox.Controls.Add(this.txtMaMH);
+            this.groupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox.Location = new System.Drawing.Point(0, 261);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(769, 238);
+            this.groupBox.TabIndex = 6;
+            this.groupBox.TabStop = false;
             // 
             // txtTenMH
             // 
@@ -309,7 +310,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 522);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox);
             this.Controls.Add(this.gcMonHoc);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -324,8 +325,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenMH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaMH.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -356,7 +357,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
         private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox;
         private DevExpress.XtraEditors.TextEdit txtTenMH;
         private DevExpress.XtraEditors.TextEdit txtMaMH;
     }

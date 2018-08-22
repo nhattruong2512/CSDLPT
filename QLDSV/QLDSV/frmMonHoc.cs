@@ -44,12 +44,14 @@ namespace QLDSV
             // TODO: This line of code loads data into the 'dS.MONHOC' table. You can move, or remove it, as needed.
             this.MonHocTableAdapter.Fill(this.dS.MONHOC);
             this.MonHocTableAdapter.Update(this.dS.MONHOC);
+
+            groupBox.Enabled = false;
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             vitri = bdsMonHoc.Position;
-            groupBox1.Enabled = true;
+            groupBox.Enabled = true;
             bdsMonHoc.AddNew();
             btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
@@ -72,7 +74,7 @@ namespace QLDSV
             bdsMonHoc.CancelEdit();
             if (btnThem.Enabled == false || btnHieuChinh.Enabled == false) bdsMonHoc.Position = vitri;
             gcMonHoc.Enabled = true;
-            groupBox1.Enabled = false;
+            groupBox.Enabled = false;
             btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = true;
             btnGhi.Enabled = btnPhucHoi.Enabled = false;
 
@@ -120,7 +122,7 @@ namespace QLDSV
         private void btnHieuChinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             vitri = bdsMonHoc.Position;
-            groupBox1.Enabled = true;
+            groupBox.Enabled = true;
             btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
             txtMaMH.Enabled = false;
@@ -280,7 +282,7 @@ namespace QLDSV
             btnThem.Enabled = btnHieuChinh.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = true;
             btnGhi.Enabled = false;
 
-            groupBox1.Enabled = false;
+            groupBox.Enabled = false;
         }
 
         private bool isTenMonHocEmpty()
